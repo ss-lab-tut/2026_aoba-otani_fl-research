@@ -1,0 +1,6 @@
+{
+  "experiment_name": "sota_baselineA",
+  "group": "sota",
+  "variant": "baselineA",
+  "seed": 42
+}
