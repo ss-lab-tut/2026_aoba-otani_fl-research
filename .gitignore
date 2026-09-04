@@ -216,3 +216,6 @@ __pycache__/
 
 # その他
 .vscode/
+
+# Managed as a separate Git repository
+/heterosense-fl-testbed/
