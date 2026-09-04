@@ -123,7 +123,7 @@ Python 3.14.3 / NumPy 2.5.2で参考benchmarkを実行しましたが、テス�
 
 ## 7. 次に行う作業
 
-1. 未公開のfeature branchをGitHubへpushし、mainへ直接pushせずPRを作成する。
+1. GitHubへ公開済みの3本のfeature branchからPRを作成し、先生のレビューを受ける。
 2. 先生に元のB1/B2実験資産の場所を確認し、再現可能なrun manifestへ固定する。
 3. false alertsの定義と条件ラベルを確定し、条件別評価datasetを生成する。
 4. B1/B2を5 seedで再現し、以降の正式値の基準を作る。
