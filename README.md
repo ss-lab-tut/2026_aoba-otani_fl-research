@@ -22,7 +22,7 @@
 - `server.py` / `client.py`: Flowerによる連合学習の最小構成
 - `configs/` / `experiments/`: 実験設定と実行用の枠組み
 
-現状の `experiments/run.py` と `client.evaluate()` には仮の評価処理が残っています。このリポジトリだけでは、先生から示されたB1〜B4、P1、P2の比較実験をまだ再現できません。
+現状の `experiments/run.py` と `client.evaluate()` には仮の評価処理が残っています。このリポジトリだけでは、計画中のB1〜B4、P1、P2の比較実験をまだ再現できません。
 
 ## データ
 
