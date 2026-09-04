@@ -18,7 +18,7 @@ label,score,condition
 - `score`: 転倒クラスの確率または単調な判定score
 - `condition`: 固定した評価条件名
 
-最低限、先生から指定された次の条件を区別します。
+最低限、研究計画で定義した次の条件を区別します。
 
 - `WALL_OCCLUDED_HELD_OUT`
 - `CORNER_LIDAR_ONLY`
@@ -46,7 +46,7 @@ python experiments/evaluate_predictions.py predictions.csv `
 
 現在は「正解が通常行動であるwindowを転倒と判定した数」と定義します。`false_alert_rate` は負例windowに対する割合です。window秒数を渡した場合は `false_alerts_per_hour` も計算します。
 
-連続windowの誤報を1件にまとめるevent-level指標はまだ実装していません。実験開始前に、論文の主指標をwindow単位、event単位、時間単位のどれにするか先生と確定する必要があります。
+連続windowの誤報を1件にまとめるevent-level指標はまだ実装していません。実験開始前に、論文の主指標をwindow単位、event単位、時間単位のどれにするか確定する必要があります。
 
 ## 5 seed集計
 
