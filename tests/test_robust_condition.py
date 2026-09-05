@@ -9,9 +9,22 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'heterosense-fl-tes
 from heterosense import ObservationBaseline, ObservableConditionEstimator
 from src.robust_condition import bounded_contrast, fit_mean_spatial_baseline, QuadraticRidgeScore
 from experiments.condition_failure_diagnosis import stable_margin
+from experiments.confirm_condition_robustness import acceptance
 
 
 class RobustConditionTests(unittest.TestCase):
+    def test_acceptance_cannot_hide_one_failed_condition_behind_average(self):
+        limits={'mean_recall_min':.9,'mean_fpr_max':.1,
+                'each_geometry_mean_recall_min':.8,'each_geometry_mean_fpr_max':.1,
+                'each_seed_geometry_recall_min':.7}
+        summary={'all':{'recall':.95,'false_positive_rate':.01},
+                 'difficult':{'recall':.6,'false_positive_rate':.01}}
+        folds=[{'variants':{'shape_quadratic':{'recall':.6}}}]
+        result=acceptance(summary,folds,limits)
+        self.assertFalse(result['passed'])
+        self.assertTrue(result['checks']['mean_recall'])
+        self.assertFalse(result['checks']['each_geometry_mean_recall'])
+
     def test_quadratic_score_learns_interaction_without_changing_scaler(self):
         x=np.tile([[-1.,-1.],[-1.,1.],[1.,-1.],[1.,1.]],(10,1))
         y=(x[:,0]*x[:,1]>0).astype(int)

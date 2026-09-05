@@ -116,7 +116,7 @@
     ]
   },
   "config_sha256": "3183fa28d1c694fa2cb43d4da0a1b57e76c6b9795c13c13a0727627c8b6ae820",
-  "frozen_protocol_commit": "57be5cf",
+  "frozen_protocol_commit": "57be5cf8eb5f31932072a115adf8e4f752f532e0",
   "environment": {
     "python": "3.14.3",
     "numpy": "2.5.2"
@@ -151,7 +151,7 @@
     "pyproject.toml": "329a6512492bb4d8234349e7d93abeaf6ac697f4a89cbdba5f069d19b1071c74"
   },
   "source_sha256": {
-    "experiments/confirm_condition_robustness.py": "5403b9034ef3adf2275215c1e2a19d0d42c2fb989a53de5f525a02cbe4fae002",
+    "experiments/confirm_condition_robustness.py": "4daf2137fb6655b8961ad58641719488b2ad81702837e69c8b462d5e4dea1c45",
     "src/robust_condition.py": "56b22c07478c2142748fc40d132e5d10a5d79cfefe25c1ab7812024f1d8b284f",
     "experiments/condition_shape_models.py": "939fcf8e4fdde1c219643203f990bd2bea377e81184fd632ae5bf98728128f2d",
     "experiments/condition_failure_diagnosis.py": "b935f6ef5a0525cce878c7ffb3b8a1c3bfdbbce76096f3ccb6a7342850fcc27a",

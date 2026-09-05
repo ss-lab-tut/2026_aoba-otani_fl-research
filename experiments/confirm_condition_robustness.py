@@ -48,7 +48,9 @@ def main():
     if set(cfg['train_seeds']) & set(cfg['threshold_calibration_seeds']) or set(cfg['test_seeds']) & set(cfg['train_seeds']+cfg['threshold_calibration_seeds']):
         raise ValueError('seed split overlap')
     new_geometries=tuple(Geometry(g['name'],tuple(g['occluders'])) for g in cfg['test_geometries'])
-    train_data,_=load_datasets(ROOT/'results/local_condition_robust_cache.npz',cfg['train_seeds']+cfg['threshold_calibration_seeds'])
+    train_cache=ROOT/'results/local_condition_robust_cache.npz'
+    if not train_cache.exists(): build_cache(train_cache,cfg['train_seeds']+cfg['threshold_calibration_seeds'])
+    train_data,_=load_datasets(train_cache,cfg['train_seeds']+cfg['threshold_calibration_seeds'])
     training_geometries=list(GEOMETRIES)
     if cfg.get('augmented_training_geometries'):
         augmented=tuple(Geometry(g['name'],tuple(g['occluders'])) for g in cfg['augmented_training_geometries'])
