@@ -1,6 +1,7 @@
 import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
+from src.data_partition import client_indices
 
 # 1. PyTorch用のデータセット定義
 class LidarDataset(Dataset):
@@ -35,12 +36,9 @@ def load_fl_data(client_id: int, num_clients: int = 2):
     y_train_3class[y_train_sub_all == 3] = 2 
     
     # データをクライアント数で均等に分割
-    data_per_client = len(x_train_all) // num_clients
-    start_idx = client_id * data_per_client
-    end_idx = start_idx + data_per_client
-    
-    x_client = x_train_all[start_idx:end_idx]
-    y_client = y_train_3class[start_idx:end_idx]
+    indices = client_indices(len(x_train_all), client_id, num_clients)
+    x_client = x_train_all[indices]
+    y_client = y_train_3class[indices]
     
     dataset = LidarDataset(x_client, y_client)
     dataloader = DataLoader(dataset, batch_size=32, shuffle=True)

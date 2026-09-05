@@ -44,7 +44,7 @@ def scores(model,dataset,batch_size):
     return np.concatenate(out)
 
 
-def run(epochs=6,seeds=(0,1,2,3,4),batch_size=32):
+def run(epochs=6,seeds=(0,1,2,3,4),batch_size=32,augment=False):
     torch.set_num_threads(4)
     torch.use_deterministic_algorithms(True)
     files=('X_train.npy','X_val_real.npy','y_train_sub.npy','y_val_sub.npy','y_train_bin.npy','y_val_bin.npy','meta.json','scaler.json')
@@ -72,6 +72,15 @@ def run(epochs=6,seeds=(0,1,2,3,4),batch_size=32):
         for epoch in range(epochs):
             model.train();total=0.
             for features,labels in loader:
+                if augment:
+                    features=features.clone()
+                    beams=features.shape[-1]
+                    for row in range(len(features)):
+                        if torch.rand(()).item()<.5:
+                            width=int(beams*(.05+.30*torch.rand(()).item()))
+                            start=int(torch.randint(beams,()).item())
+                            columns=(start+torch.arange(width))%beams
+                            features[row,:,:,columns]=0
                 optimizer.zero_grad();loss=loss_fn(model(features),labels)
                 loss.backward();optimizer.step();total+=float(loss.detach())*len(labels)
             losses.append(total/len(datasets['train']))
@@ -80,13 +89,15 @@ def run(epochs=6,seeds=(0,1,2,3,4),batch_size=32):
         test=scores(model,datasets['test'],batch_size)
         threshold=select_threshold(y[split['calibration']],cal,np.full(len(cal),'all'),.05)
         rows=evaluate_tradeoff(y[split['test']],test,thresholds=[.5,threshold])
-        checkpoint=ROOT/'results'/f'local_real_fall_seed{seed}.pt'
+        tag='real_fall_augmented' if augment else 'real_fall'
+        checkpoint=ROOT/'results'/f'local_{tag}_seed{seed}.pt'
         torch.save(model.state_dict(),checkpoint)
-        prediction_path=ROOT/'results'/f'local_real_fall_seed{seed}.npz'
+        prediction_path=ROOT/'results'/f'local_{tag}_seed{seed}.npz'
         np.savez_compressed(prediction_path,calibration_scores=cal,test_scores=test,
                             calibration_indices=split['calibration'],test_indices=split['test'])
         folds.append(dict(seed=seed,split=split,losses=losses,selected_threshold=threshold,
                           metrics=rows,checkpoint_sha256=sha256(checkpoint),
+                          checkpoint_file=checkpoint.name,
                           test_subclass_counts={str(k):int(np.sum(subclass[split['test']]==k)) for k in range(4)}))
     summary={}
     for i,name in enumerate(('fixed_0.5','calibrated_fpr_0.05')):
@@ -96,6 +107,7 @@ def run(epochs=6,seeds=(0,1,2,3,4),batch_size=32):
     return dict(status='exploratory_purged_within_series_diagnostic_not_official_generalization',
                 environment=dict(python=platform.python_version(),numpy=np.__version__,torch=torch.__version__,device='cpu'),
                 input_sha256=fingerprints,epochs=epochs,batch_size=batch_size,learning_rate=.001,
+                augmentation=({'probability':.5,'beam_fraction_min':.05,'beam_fraction_max':.35,'value':0.,'training_only':True} if augment else None),
                 chronological_order=order.tolist(),quarantined_global_indices=uncertain.tolist(),
                 folds=folds,summary=summary,
                 limitations=['No subject/recording/site identities; temporal separation is not independence of subjects or events.',
@@ -109,7 +121,10 @@ if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--epochs',type=int,default=6)
     p.add_argument('--seeds',type=int,nargs='+',default=[0,1,2,3,4])
     p.add_argument('--output',type=Path,default=ROOT/'results/real_fall_baseline.json')
+    p.add_argument('--augment',action='store_true')
     args=p.parse_args()
-    r=run(args.epochs,tuple(args.seeds))
+    if args.augment and args.output==ROOT/'results/real_fall_baseline.json':
+        raise ValueError('augmented run requires a separate --output path')
+    r=run(args.epochs,tuple(args.seeds),augment=args.augment)
     args.output.write_text(json.dumps(r,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     print(json.dumps(r['summary'],indent=2))

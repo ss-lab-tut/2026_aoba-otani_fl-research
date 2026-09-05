@@ -1,0 +1,22 @@
+{
+  "status": "exploratory_training_augmentation_comparison",
+  "epochs": 6,
+  "seeds": [0, 1, 2, 3, 4],
+  "training_probability": 0.5,
+  "training_mask_fraction_range": [0.05, 0.35],
+  "calibration_start_fractions": [0.0, 0.25, 0.5, 0.75],
+  "test_start_fractions": [0.07, 0.57],
+  "test_mask_fractions": [0.15, 0.35],
+  "calibration_fpr_budget": 0.05,
+  "positive_result_requirements": {
+    "overall_recall_at_least_unaugmented": true,
+    "overall_fpr_at_most": 0.05,
+    "each_scenario_mean_recall_at_least": 0.8,
+    "each_scenario_mean_fpr_at_most": 0.1
+  },
+  "restrictions": [
+    "Do not tune models or thresholds on test scores",
+    "Artificial input masks are not physical sensor occlusion",
+    "This is not an independent-subject or independent-event validation"
+  ]
+}
