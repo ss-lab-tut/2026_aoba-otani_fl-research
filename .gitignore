@@ -219,3 +219,6 @@ __pycache__/
 
 # Managed as a separate Git repository
 /heterosense-fl-testbed/
+
+# Small reproducible research report (raw arrays remain ignored).
+!/results/condition_threshold_validation.json

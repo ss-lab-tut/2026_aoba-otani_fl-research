@@ -1,0 +1,3 @@
+# Preserve byte hashes recorded by the condition-threshold experiment.
+/experiments/condition_threshold_validation.py text eol=lf
+/results/condition_threshold_validation.testbed.patch text eol=lf

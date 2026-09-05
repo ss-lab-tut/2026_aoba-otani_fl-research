@@ -1,0 +1,494 @@
+diff --git a/heterosense/_scripts/structured_occlusion_pilot.py b/heterosense/_scripts/structured_occlusion_pilot.py
+index 520fbaa..699ab03 100644
+--- a/heterosense/_scripts/structured_occlusion_pilot.py
++++ b/heterosense/_scripts/structured_occlusion_pilot.py
+@@ -51,10 +51,31 @@ GEOMETRIES = (
+ 
+ FEATURE_SETS = {
+     "all_observable_features": tuple(FEATURE_NAMES),
+-    "without_point_count": tuple(
++    "without_global_point_count": tuple(
+         name for name in FEATURE_NAMES
+         if name not in {"point_count", "point_count_ratio"}
+     ),
++    "sector_counts_only": tuple(
++        name for name in FEATURE_NAMES
++        if (name.startswith("sector_") and name.endswith("_count_ratio"))
++        or name in {
++            "sector_count_ratio_min",
++            "sector_count_ratio_std",
++            "sector_depleted_ratio",
++        }
++    ),
++    "sector_spatial_only": tuple(
++        name for name in FEATURE_NAMES if name.startswith("sector_")
++    ),
++    "sector_distribution_only": tuple(
++        name for name in FEATURE_NAMES
++        if name.startswith("sector_count_ratio_order_")
++        or name in {
++            "sector_count_ratio_min",
++            "sector_count_ratio_std",
++            "sector_depleted_ratio",
++        }
++    ),
+     "lidar_shape_only": (
+         "z_mean", "z_std", "z_q10", "z_q50", "z_q90",
+         "z_mean_delta", "z_std_delta", "floor02_ratio", "floor04_ratio",
+@@ -62,6 +83,21 @@ FEATURE_SETS = {
+     ),
+ }
+ 
++TEMPORAL_FEATURE_SETS = {
++    "sector_counts_trailing_mean_5": (FEATURE_SETS["sector_counts_only"], 5),
++    "sector_counts_trailing_mean_15": (FEATURE_SETS["sector_counts_only"], 15),
++    "sector_counts_trailing_mean_30": (FEATURE_SETS["sector_counts_only"], 30),
++    "sector_distribution_trailing_mean_5": (
++        FEATURE_SETS["sector_distribution_only"], 5
++    ),
++    "sector_distribution_trailing_mean_15": (
++        FEATURE_SETS["sector_distribution_only"], 15
++    ),
++    "sector_distribution_trailing_mean_30": (
++        FEATURE_SETS["sector_distribution_only"], 30
++    ),
++}
++
+ 
+ def _client(occluders: tuple[dict, ...]) -> dict:
+     return {
+@@ -94,17 +130,26 @@ def build_geometry_dataset(
+     n_steps: int,
+     calibration_steps: int,
+     minimum_loss_ratio: float,
++    baseline_mode: str,
+ ) -> dict[str, np.ndarray]:
+     """Build paired clear/occluded observations with an effect-based target."""
+     clear = _build(seed, n_steps, ())
+     occluded = _build(seed, n_steps, geometry.occluders)
+-    baseline = ObservationBaseline.fit(clear[:calibration_steps])
+-    extractor = ObservationStatisticsExtractor(baseline)
++    if baseline_mode not in {"per_sequence_observed", "shared_clear_diagnostic"}:
++        raise ValueError(f"unknown baseline_mode: {baseline_mode}")
++    clear_baseline = ObservationBaseline.fit(clear[:calibration_steps])
++    occluded_baseline = (
++        ObservationBaseline.fit(occluded[:calibration_steps])
++        if baseline_mode == "per_sequence_observed"
++        else clear_baseline
++    )
++    clear_extractor = ObservationStatisticsExtractor(clear_baseline)
++    occluded_extractor = ObservationStatisticsExtractor(occluded_baseline)
+ 
+     clear_eval = clear[calibration_steps:]
+     occluded_eval = occluded[calibration_steps:]
+-    clear_features = extractor.transform(clear_eval)
+-    occluded_features = extractor.transform(occluded_eval)
++    clear_features = clear_extractor.transform(clear_eval)
++    occluded_features = occluded_extractor.transform(occluded_eval)
+ 
+     clear_counts = np.asarray([len(bundle.lidar) for bundle in clear_eval])
+     occluded_counts = np.asarray([len(bundle.lidar) for bundle in occluded_eval])
+@@ -113,16 +158,31 @@ def build_geometry_dataset(
+     loss_ratio = (clear_counts - occluded_counts) / np.maximum(clear_counts, 1)
+     affected = loss_ratio >= minimum_loss_ratio
+ 
++    clear_targets = np.full(len(clear_features), "clear")
++    occluded_targets = np.where(affected, "degraded", "clear")
+     return {
+         "features": np.vstack([clear_features, occluded_features]),
+-        "targets": np.concatenate([
+-            np.full(len(clear_features), "clear"),
+-            np.where(affected, "degraded", "clear"),
+-        ]),
++        "targets": np.concatenate([clear_targets, occluded_targets]),
++        "feature_sequences": (clear_features, occluded_features),
++        "target_sequences": (clear_targets, occluded_targets),
+         "loss_ratio": loss_ratio,
+     }
+ 
+ 
++def trailing_mean(features: np.ndarray, window: int) -> np.ndarray:
++    """Causal rolling mean: each row uses only itself and earlier rows."""
++    if window <= 0:
++        raise ValueError("window must be positive")
++    x = np.asarray(features, dtype=np.float64)
++    if x.ndim != 2:
++        raise ValueError("features must be a 2-D array")
++    cumulative = np.vstack([np.zeros((1, x.shape[1])), np.cumsum(x, axis=0)])
++    starts = np.maximum(np.arange(len(x)) - window + 1, 0)
++    totals = cumulative[np.arange(1, len(x) + 1)] - cumulative[starts]
++    lengths = (np.arange(len(x)) - starts + 1)[:, None]
++    return totals / lengths
++
++
+ def _binary_metrics(targets: np.ndarray, predictions: np.ndarray) -> dict[str, float]:
+     positive = targets == "degraded"
+     negative = ~positive
+@@ -143,6 +203,7 @@ def run_experiment(
+     n_steps: int = 800,
+     calibration_steps: int = 100,
+     minimum_loss_ratio: float = 0.10,
++    baseline_mode: str = "per_sequence_observed",
+ ) -> dict:
+     """Hold out both one trajectory seed and one occluder geometry per fold."""
+     if len(seeds) != len(GEOMETRIES):
+@@ -152,7 +213,12 @@ def run_experiment(
+ 
+     datasets = {
+         (seed, geometry.name): build_geometry_dataset(
+-            seed, geometry, n_steps, calibration_steps, minimum_loss_ratio
++            seed,
++            geometry,
++            n_steps,
++            calibration_steps,
++            minimum_loss_ratio,
++            baseline_mode,
+         )
+         for seed in seeds
+         for geometry in GEOMETRIES
+@@ -179,6 +245,27 @@ def run_experiment(
+                 test["targets"], predictions
+             )
+ 
++        for feature_set, (feature_names, window) in TEMPORAL_FEATURE_SETS.items():
++            columns = [FEATURE_NAMES.index(name) for name in feature_names]
++            x_train = np.vstack([
++                trailing_mean(sequence[:, columns], window)
++                for item in train_items
++                for sequence in item["feature_sequences"]
++            ])
++            y_train = np.concatenate([
++                targets
++                for item in train_items
++                for targets in item["target_sequences"]
++            ])
++            x_test = np.vstack([
++                trailing_mean(sequence[:, columns], window)
++                for sequence in test["feature_sequences"]
++            ])
++            model = ObservableConditionEstimator().fit(x_train, y_train)
++            feature_results[feature_set] = _binary_metrics(
++                test["targets"], model.predict(x_test)
++            )
++
+         folds.append({
+             "held_out_seed": held_out_seed,
+             "held_out_geometry": held_out_geometry.name,
+@@ -190,7 +277,7 @@ def run_experiment(
+         })
+ 
+     summary = {}
+-    for feature_set in FEATURE_SETS:
++    for feature_set in (*FEATURE_SETS, *TEMPORAL_FEATURE_SETS):
+         summary[feature_set] = {}
+         for metric in ("balanced_accuracy", "degraded_recall", "false_positive_rate"):
+             values = np.asarray([
+@@ -219,6 +306,7 @@ def run_experiment(
+         "geometries": [geometry.name for geometry in GEOMETRIES],
+         "n_steps": n_steps,
+         "calibration_steps": calibration_steps,
++        "baseline_mode": baseline_mode,
+         "folds": folds,
+         "summary": summary,
+         "limitations": [
+@@ -236,12 +324,18 @@ def main() -> None:
+     parser.add_argument("--n-steps", type=int, default=800)
+     parser.add_argument("--calibration-steps", type=int, default=100)
+     parser.add_argument("--minimum-loss-ratio", type=float, default=0.10)
++    parser.add_argument(
++        "--baseline-mode",
++        choices=("per_sequence_observed", "shared_clear_diagnostic"),
++        default="per_sequence_observed",
++    )
+     parser.add_argument("--output", type=Path)
+     args = parser.parse_args()
+     report = run_experiment(
+         n_steps=args.n_steps,
+         calibration_steps=args.calibration_steps,
+         minimum_loss_ratio=args.minimum_loss_ratio,
++        baseline_mode=args.baseline_mode,
+     )
+     rendered = json.dumps(report, indent=2, ensure_ascii=False)
+     if args.output:
+diff --git a/heterosense/observation_statistics.py b/heterosense/observation_statistics.py
+index 2c22dd6..55ff0fc 100644
+--- a/heterosense/observation_statistics.py
++++ b/heterosense/observation_statistics.py
+@@ -14,11 +14,28 @@ import numpy as np
+ from heterosense._core._observation_model import ModalityBundle
+ 
+ 
+-FEATURE_NAMES: tuple[str, ...] = (
++_SECTOR_GRID_SIZE = 3
++_SECTOR_IDS = tuple(
++    (x_index, y_index)
++    for x_index in range(_SECTOR_GRID_SIZE)
++    for y_index in range(_SECTOR_GRID_SIZE)
++)
++_SECTOR_COUNT_NAMES = tuple(
++    f"sector_{x_index}_{y_index}_count_ratio"
++    for x_index, y_index in _SECTOR_IDS
++)
++_SECTOR_Z_NAMES = tuple(
++    f"sector_{x_index}_{y_index}_z_mean_delta"
++    for x_index, y_index in _SECTOR_IDS
++)
++_SECTOR_ORDER_NAMES = tuple(
++    f"sector_count_ratio_order_{index}" for index in range(len(_SECTOR_IDS))
++)
++
++LIDAR_FEATURE_NAMES: tuple[str, ...] = (
+     "lidar_available",
+-    "pressure_available",
+     "lidar_baseline_available",
+-    "pressure_baseline_available",
++    "spatial_baseline_available",
+     "point_count",
+     "point_count_ratio",
+     "z_mean",
+@@ -33,6 +50,17 @@ FEATURE_NAMES: tuple[str, ...] = (
+     "x_std",
+     "y_std",
+     "xy_spread",
++    *_SECTOR_COUNT_NAMES,
++    *_SECTOR_Z_NAMES,
++    *_SECTOR_ORDER_NAMES,
++    "sector_count_ratio_min",
++    "sector_count_ratio_std",
++    "sector_depleted_ratio",
++)
++
++PRESSURE_FEATURE_NAMES: tuple[str, ...] = (
++    "pressure_available",
++    "pressure_baseline_available",
+     "pressure_sum",
+     "pressure_mean",
+     "pressure_std",
+@@ -41,6 +69,8 @@ FEATURE_NAMES: tuple[str, ...] = (
+     "pressure_sum_delta",
+ )
+ 
++FEATURE_NAMES: tuple[str, ...] = LIDAR_FEATURE_NAMES + PRESSURE_FEATURE_NAMES
++
+ 
+ @dataclass(frozen=True)
+ class ObservationBaseline:
+@@ -50,6 +80,10 @@ class ObservationBaseline:
+     z_mean: Optional[float] = None
+     z_std: Optional[float] = None
+     pressure_sum: Optional[float] = None
++    x_sector_edges: Optional[tuple[float, float]] = None
++    y_sector_edges: Optional[tuple[float, float]] = None
++    sector_point_counts: Optional[tuple[float, ...]] = None
++    sector_z_means: Optional[tuple[float, ...]] = None
+ 
+     @classmethod
+     def fit(cls, bundles: Iterable[ModalityBundle]) -> "ObservationBaseline":
+@@ -59,6 +93,7 @@ class ObservationBaseline:
+         :class:`ModalityBundle`.  The caller is responsible for choosing a
+         representative, leakage-free calibration period.
+         """
++        lidar_frames: list[np.ndarray] = []
+         point_counts: list[float] = []
+         z_means: list[float] = []
+         z_stds: list[float] = []
+@@ -67,6 +102,7 @@ class ObservationBaseline:
+         for bundle in bundles:
+             lidar = _valid_lidar(bundle.lidar)
+             if lidar is not None:
++                lidar_frames.append(lidar)
+                 point_counts.append(float(len(lidar)))
+                 z_means.append(float(np.mean(lidar[:, 2])))
+                 z_stds.append(float(np.std(lidar[:, 2])))
+@@ -75,11 +111,13 @@ class ObservationBaseline:
+             if pressure is not None:
+                 pressure_sums.append(float(np.sum(pressure)))
+ 
++        spatial = _fit_spatial_baseline(lidar_frames)
+         return cls(
+             point_count=_median_or_none(point_counts),
+             z_mean=_median_or_none(z_means),
+             z_std=_median_or_none(z_stds),
+             pressure_sum=_median_or_none(pressure_sums),
++            **spatial,
+         )
+ 
+ 
+@@ -115,6 +153,7 @@ class ObservationStatisticsExtractor:
+             and _finite(self.baseline.z_std)
+         )
+         pressure_baseline_available = _finite(self.baseline.pressure_sum)
++        spatial_baseline_available = _spatial_baseline_available(self.baseline)
+ 
+         if lidar_available:
+             assert lidar is not None
+@@ -128,6 +167,9 @@ class ObservationStatisticsExtractor:
+             x_std = float(np.std(x))
+             y_std = float(np.std(y))
+             lidar_values = {
++                "lidar_available": 1.0,
++                "lidar_baseline_available": float(lidar_baseline_available),
++                "spatial_baseline_available": float(spatial_baseline_available),
+                 "point_count": point_count,
+                 "point_count_ratio": (
+                     point_count / float(self.baseline.point_count)
+@@ -152,13 +194,20 @@ class ObservationStatisticsExtractor:
+                 "y_std": y_std,
+                 "xy_spread": float(np.hypot(x_std, y_std)),
+             }
++            lidar_values.update(
++                _spatial_statistics(lidar, self.baseline)
++                if spatial_baseline_available
++                else _empty_spatial_statistics()
++            )
+         else:
+-            lidar_values = {name: 0.0 for name in FEATURE_NAMES[4:18]}
++            lidar_values = {name: 0.0 for name in LIDAR_FEATURE_NAMES}
+ 
+         if pressure_available:
+             assert pressure is not None
+             pressure_sum = float(np.sum(pressure))
+             pressure_values = {
++                "pressure_available": 1.0,
++                "pressure_baseline_available": float(pressure_baseline_available),
+                 "pressure_sum": pressure_sum,
+                 "pressure_mean": float(np.mean(pressure)),
+                 "pressure_std": float(np.std(pressure)),
+@@ -172,13 +221,9 @@ class ObservationStatisticsExtractor:
+                 ),
+             }
+         else:
+-            pressure_values = {name: 0.0 for name in FEATURE_NAMES[18:]}
++            pressure_values = {name: 0.0 for name in PRESSURE_FEATURE_NAMES}
+ 
+         values = {
+-            "lidar_available": float(lidar_available),
+-            "pressure_available": float(pressure_available),
+-            "lidar_baseline_available": float(lidar_baseline_available),
+-            "pressure_baseline_available": float(pressure_baseline_available),
+             **lidar_values,
+             **pressure_values,
+         }
+@@ -229,3 +274,122 @@ def _finite(value: Optional[float]) -> bool:
+ 
+ def _positive_finite(value: Optional[float]) -> bool:
+     return _finite(value) and float(value) > 0.0
++
++
++def _fit_spatial_baseline(lidar_frames: list[np.ndarray]) -> dict[str, object]:
++    if not lidar_frames:
++        return {
++            "x_sector_edges": None,
++            "y_sector_edges": None,
++            "sector_point_counts": None,
++            "sector_z_means": None,
++        }
++
++    all_points = np.vstack(lidar_frames)
++    x_edges = tuple(float(value) for value in np.quantile(all_points[:, 0], (1 / 3, 2 / 3)))
++    y_edges = tuple(float(value) for value in np.quantile(all_points[:, 1], (1 / 3, 2 / 3)))
++    if not (x_edges[0] < x_edges[1] and y_edges[0] < y_edges[1]):
++        return {
++            "x_sector_edges": None,
++            "y_sector_edges": None,
++            "sector_point_counts": None,
++            "sector_z_means": None,
++        }
++
++    frame_counts: list[np.ndarray] = []
++    frame_z_means: list[np.ndarray] = []
++    for lidar in lidar_frames:
++        counts, z_means = _sector_values(lidar, x_edges, y_edges)
++        frame_counts.append(counts)
++        frame_z_means.append(z_means)
++
++    count_baseline = np.median(np.vstack(frame_counts), axis=0)
++    z_matrix = np.vstack(frame_z_means)
++    z_baseline = np.asarray([
++        np.median(column[np.isfinite(column)])
++        if np.any(np.isfinite(column)) else np.nan
++        for column in z_matrix.T
++    ])
++    return {
++        "x_sector_edges": x_edges,
++        "y_sector_edges": y_edges,
++        "sector_point_counts": tuple(float(value) for value in count_baseline),
++        "sector_z_means": tuple(float(value) for value in z_baseline),
++    }
++
++
++def _spatial_baseline_available(baseline: ObservationBaseline) -> bool:
++    return bool(
++        baseline.x_sector_edges is not None
++        and baseline.y_sector_edges is not None
++        and baseline.sector_point_counts is not None
++        and baseline.sector_z_means is not None
++        and len(baseline.x_sector_edges) == 2
++        and len(baseline.y_sector_edges) == 2
++        and len(baseline.sector_point_counts) == len(_SECTOR_IDS)
++        and len(baseline.sector_z_means) == len(_SECTOR_IDS)
++    )
++
++
++def _sector_values(
++    lidar: np.ndarray,
++    x_edges: tuple[float, float],
++    y_edges: tuple[float, float],
++) -> tuple[np.ndarray, np.ndarray]:
++    x_bins = np.digitize(lidar[:, 0], x_edges)
++    y_bins = np.digitize(lidar[:, 1], y_edges)
++    counts = np.zeros(len(_SECTOR_IDS), dtype=np.float64)
++    z_means = np.full(len(_SECTOR_IDS), np.nan, dtype=np.float64)
++    for index, (x_index, y_index) in enumerate(_SECTOR_IDS):
++        selected = (x_bins == x_index) & (y_bins == y_index)
++        counts[index] = float(np.sum(selected))
++        if np.any(selected):
++            z_means[index] = float(np.mean(lidar[selected, 2]))
++    return counts, z_means
++
++
++def _empty_spatial_statistics() -> dict[str, float]:
++    return {
++        **{name: 0.0 for name in _SECTOR_COUNT_NAMES},
++        **{name: 0.0 for name in _SECTOR_Z_NAMES},
++        **{name: 0.0 for name in _SECTOR_ORDER_NAMES},
++        "sector_count_ratio_min": 0.0,
++        "sector_count_ratio_std": 0.0,
++        "sector_depleted_ratio": 0.0,
++    }
++
++
++def _spatial_statistics(
++    lidar: np.ndarray,
++    baseline: ObservationBaseline,
++) -> dict[str, float]:
++    assert baseline.x_sector_edges is not None
++    assert baseline.y_sector_edges is not None
++    assert baseline.sector_point_counts is not None
++    assert baseline.sector_z_means is not None
++    counts, z_means = _sector_values(
++        lidar, baseline.x_sector_edges, baseline.y_sector_edges
++    )
++    baseline_counts = np.asarray(baseline.sector_point_counts)
++    count_ratios = np.divide(
++        counts,
++        baseline_counts,
++        out=np.zeros_like(counts),
++        where=baseline_counts > 0.0,
++    )
++    baseline_z = np.asarray(baseline.sector_z_means)
++    z_deltas = np.subtract(
++        z_means,
++        baseline_z,
++        out=np.zeros_like(z_means),
++        where=np.isfinite(z_means) & np.isfinite(baseline_z),
++    )
++    ordered_ratios = np.sort(count_ratios)
++    return {
++        **dict(zip(_SECTOR_COUNT_NAMES, count_ratios.astype(float))),
++        **dict(zip(_SECTOR_Z_NAMES, z_deltas.astype(float))),
++        **dict(zip(_SECTOR_ORDER_NAMES, ordered_ratios.astype(float))),
++        "sector_count_ratio_min": float(np.min(count_ratios)),
++        "sector_count_ratio_std": float(np.std(count_ratios)),
++        "sector_depleted_ratio": float(np.mean(count_ratios < 0.75)),
++    }
