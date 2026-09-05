@@ -1,0 +1,2735 @@
+{
+  "status": "exploratory_condition_diagnosis",
+  "baselines": [
+    {
+      "seed": 0,
+      "geometry": "vertical_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        4.0,
+        2.0,
+        3.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "vertical_near",
+      "kind": "occluded",
+      "point_count": 37.0,
+      "sector_counts": [
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "vertical_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        4.0,
+        2.0,
+        3.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "vertical_mid",
+      "kind": "occluded",
+      "point_count": 154.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "horizontal_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        4.0,
+        2.0,
+        3.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "horizontal_near",
+      "kind": "occluded",
+      "point_count": 3.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "horizontal_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        4.0,
+        2.0,
+        3.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "horizontal_mid",
+      "kind": "occluded",
+      "point_count": 9.5,
+      "sector_counts": [
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "central_furniture",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        4.0,
+        2.0,
+        3.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 0,
+      "geometry": "central_furniture",
+      "kind": "occluded",
+      "point_count": 157.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.5,
+        1.0,
+        4.0,
+        1.0,
+        1.0
+      ],
+      "absent_fraction": 0.05
+    },
+    {
+      "seed": 1,
+      "geometry": "vertical_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "vertical_near",
+      "kind": "occluded",
+      "point_count": 3.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "vertical_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "vertical_mid",
+      "kind": "occluded",
+      "point_count": 5.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "horizontal_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "horizontal_near",
+      "kind": "occluded",
+      "point_count": 3.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "horizontal_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "horizontal_mid",
+      "kind": "occluded",
+      "point_count": 144.0,
+      "sector_counts": [
+        3.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "central_furniture",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 1,
+      "geometry": "central_furniture",
+      "kind": "occluded",
+      "point_count": 149.0,
+      "sector_counts": [
+        3.0,
+        1.0,
+        4.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 2,
+      "geometry": "vertical_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        6.0,
+        1.0,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "vertical_near",
+      "kind": "occluded",
+      "point_count": 3.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "vertical_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        6.0,
+        1.0,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "vertical_mid",
+      "kind": "occluded",
+      "point_count": 6.0,
+      "sector_counts": [
+        2.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "horizontal_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        6.0,
+        1.0,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "horizontal_near",
+      "kind": "occluded",
+      "point_count": 3.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "horizontal_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        6.0,
+        1.0,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "horizontal_mid",
+      "kind": "occluded",
+      "point_count": 5.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "central_furniture",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        6.0,
+        1.0,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 2,
+      "geometry": "central_furniture",
+      "kind": "occluded",
+      "point_count": 80.0,
+      "sector_counts": [
+        5.0,
+        0.5,
+        3.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.14
+    },
+    {
+      "seed": 3,
+      "geometry": "vertical_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "vertical_near",
+      "kind": "occluded",
+      "point_count": 2.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "vertical_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "vertical_mid",
+      "kind": "occluded",
+      "point_count": 5.0,
+      "sector_counts": [
+        1.0,
+        0.0,
+        2.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "horizontal_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "horizontal_near",
+      "kind": "occluded",
+      "point_count": 4.0,
+      "sector_counts": [
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "horizontal_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "horizontal_mid",
+      "kind": "occluded",
+      "point_count": 145.5,
+      "sector_counts": [
+        2.0,
+        1.5,
+        2.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "central_furniture",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        3.0,
+        2.0,
+        5.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 3,
+      "geometry": "central_furniture",
+      "kind": "occluded",
+      "point_count": 149.0,
+      "sector_counts": [
+        2.0,
+        2.0,
+        4.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "absent_fraction": 0.0
+    },
+    {
+      "seed": 4,
+      "geometry": "vertical_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        9.0,
+        1.5,
+        2.0,
+        1.0,
+        0.5,
+        2.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "vertical_near",
+      "kind": "occluded",
+      "point_count": 3.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        3.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "vertical_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        9.0,
+        1.5,
+        2.0,
+        1.0,
+        0.5,
+        2.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "vertical_mid",
+      "kind": "occluded",
+      "point_count": 5.0,
+      "sector_counts": [
+        0.0,
+        0.0,
+        5.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "horizontal_near",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        9.0,
+        1.5,
+        2.0,
+        1.0,
+        0.5,
+        2.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "horizontal_near",
+      "kind": "occluded",
+      "point_count": 151.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        3.0,
+        0.0,
+        2.0,
+        2.5,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "horizontal_mid",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        9.0,
+        1.5,
+        2.0,
+        1.0,
+        0.5,
+        2.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "horizontal_mid",
+      "kind": "occluded",
+      "point_count": 154.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        4.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "central_furniture",
+      "kind": "clear",
+      "point_count": 160.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        9.0,
+        1.5,
+        2.0,
+        1.0,
+        0.5,
+        2.0,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    },
+    {
+      "seed": 4,
+      "geometry": "central_furniture",
+      "kind": "occluded",
+      "point_count": 157.0,
+      "sector_counts": [
+        1.0,
+        1.0,
+        7.0,
+        1.0,
+        1.5,
+        1.0,
+        0.0,
+        1.5,
+        0.0
+      ],
+      "absent_fraction": 0.01
+    }
+  ],
+  "folds": [
+    {
+      "seed": 0,
+      "geometry": "vertical_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.9259259259259259,
+          "false_positive_rate": 0.016129032258064516,
+          "balanced_accuracy": 0.9548984468339308,
+          "true_positives": 550,
+          "false_positives": 13,
+          "positives": 594,
+          "negatives": 806,
+          "auc": 0.9939792883341271,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 594,
+          "negatives": 806,
+          "auc": 0.9939792883341271,
+          "threshold": 0.6713068587222771
+        },
+        "stable_margin_fixed": {
+          "recall": 0.9259259259259259,
+          "false_positive_rate": 0.016129032258064516,
+          "balanced_accuracy": 0.9548984468339308,
+          "true_positives": 550,
+          "false_positives": 13,
+          "positives": 594,
+          "negatives": 806,
+          "auc": 0.9939792883341271,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 594,
+          "negatives": 806,
+          "auc": 0.9939792883341271,
+          "threshold": 0.7141017337218964
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -2.710151803796656,
+        -0.4128521834781749,
+        0.7141017337218963,
+        0.7141017337218963
+      ],
+      "test_negative_margin_quantiles": [
+        -2.9849006603107444,
+        -1.1942491843570577,
+        -0.574838616037106,
+        0.3639407281071299
+      ],
+      "test_feature_max": 154.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 0,
+      "geometry": "vertical_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.15414258188824662,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5770712909441233,
+          "true_positives": 80,
+          "false_positives": 0,
+          "positives": 519,
+          "negatives": 881,
+          "auc": 0.9151581558003582,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 519,
+          "negatives": 881,
+          "auc": 0.9151581558003582,
+          "threshold": 0.6729280952713228
+        },
+        "stable_margin_fixed": {
+          "recall": 0.15414258188824662,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5770712909441233,
+          "true_positives": 80,
+          "false_positives": 0,
+          "positives": 519,
+          "negatives": 881,
+          "auc": 0.9151581558003582,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 519,
+          "negatives": 881,
+          "auc": 0.9151581558003582,
+          "threshold": 0.7214584429824247
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -37.1724261604353,
+        -0.5215100063241928,
+        0.7214584429824246,
+        0.7214584429824246
+      ],
+      "test_negative_margin_quantiles": [
+        -37.5301660360332,
+        -1.7623630502927765,
+        -1.0666303782131197,
+        -0.7722866949746061
+      ],
+      "test_feature_max": 154.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 0,
+      "geometry": "horizontal_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.9357142857142857,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.9678571428571429,
+          "true_positives": 655,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.6700663934239327
+        },
+        "stable_margin_fixed": {
+          "recall": 0.9357142857142857,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.9678571428571429,
+          "true_positives": 655,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.7084853601131198
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -2.908000647627521,
+        -0.5050026373186537,
+        -0.15881190941956225,
+        0.7084853601131197
+      ],
+      "test_negative_margin_quantiles": [
+        -3.7667461010648844,
+        -1.2747782385734983,
+        -1.055494154615694,
+        -0.8443282470192188
+      ],
+      "test_feature_max": 154.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 0,
+      "geometry": "horizontal_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.9957142857142857,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.9978571428571428,
+          "true_positives": 697,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.6638762620950528
+        },
+        "stable_margin_fixed": {
+          "recall": 0.9957142857142857,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.9978571428571428,
+          "true_positives": 697,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 1.0,
+          "threshold": 0.6806164201006133
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -2.9180019098272516,
+        -0.4304693276059896,
+        0.6806164201006132,
+        0.6806164201006132
+      ],
+      "test_negative_margin_quantiles": [
+        -3.4439083732468774,
+        -1.2564977467025238,
+        -1.052059503953438,
+        -0.8529640113765807
+      ],
+      "test_feature_max": 154.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 0,
+      "geometry": "central_furniture",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 459,
+          "negatives": 941,
+          "auc": 0.41712913763923326,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 459,
+          "negatives": 941,
+          "auc": 0.41712913763923326,
+          "threshold": 0.6642779829372089
+        },
+        "stable_margin_fixed": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 459,
+          "negatives": 941,
+          "auc": 0.41712913763923326,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5,
+          "true_positives": 0,
+          "false_positives": 0,
+          "positives": 459,
+          "negatives": 941,
+          "auc": 0.41712913763923326,
+          "threshold": 0.6824172235027565
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -32.06167657248382,
+        -0.5393058887274451,
+        0.6824172235027564,
+        0.6824172235027564
+      ],
+      "test_negative_margin_quantiles": [
+        -34.73725212297728,
+        -11.33553382724215,
+        -2.066957838709323,
+        -1.6418558244403971
+      ],
+      "test_feature_max": 154.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 1,
+      "geometry": "vertical_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.07977207977207977,
+          "balanced_accuracy": 0.9601139601139601,
+          "true_positives": 698,
+          "false_positives": 56,
+          "positives": 698,
+          "negatives": 702,
+          "auc": 0.9982265161348256,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9799426934097422,
+          "false_positive_rate": 0.002849002849002849,
+          "balanced_accuracy": 0.9885468452803696,
+          "true_positives": 684,
+          "false_positives": 2,
+          "positives": 698,
+          "negatives": 702,
+          "auc": 0.9982265161348256,
+          "threshold": 0.5875751583780736
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.07977207977207977,
+          "balanced_accuracy": 0.9601139601139601,
+          "true_positives": 698,
+          "false_positives": 56,
+          "positives": 698,
+          "negatives": 702,
+          "auc": 0.9982265161348256,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9799426934097422,
+          "false_positive_rate": 0.002849002849002849,
+          "balanced_accuracy": 0.9885468452803696,
+          "true_positives": 684,
+          "false_positives": 2,
+          "positives": 698,
+          "negatives": 702,
+          "auc": 0.9982265161348256,
+          "threshold": 0.3539501799449971
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -0.867879823225486,
+        0.20439325444557255,
+        0.35395017994499706,
+        0.43135929107932264
+      ],
+      "test_negative_margin_quantiles": [
+        -0.983134315733107,
+        -0.22003411358950958,
+        0.04338878537053878,
+        0.6484262298886936
+      ],
+      "test_feature_max": 150.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 1,
+      "geometry": "vertical_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.14690721649484537,
+          "balanced_accuracy": 0.9265463917525774,
+          "true_positives": 624,
+          "false_positives": 114,
+          "positives": 624,
+          "negatives": 776,
+          "auc": 0.9506385474491145,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.0979381443298969,
+          "balanced_accuracy": 0.9510309278350515,
+          "true_positives": 624,
+          "false_positives": 76,
+          "positives": 624,
+          "negatives": 776,
+          "auc": 0.9506385474491145,
+          "threshold": 0.5861561075155284
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.14690721649484537,
+          "balanced_accuracy": 0.9265463917525774,
+          "true_positives": 624,
+          "false_positives": 114,
+          "positives": 624,
+          "negatives": 776,
+          "auc": 0.9506385474491145,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.0979381443298969,
+          "balanced_accuracy": 0.9510309278350515,
+          "true_positives": 624,
+          "false_positives": 76,
+          "positives": 624,
+          "negatives": 776,
+          "auc": 0.9506385474491145,
+          "threshold": 0.348097317755326
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -0.9631095931875198,
+        0.1759485453540499,
+        0.34809731775532593,
+        0.43985103503565237
+      ],
+      "test_negative_margin_quantiles": [
+        -1.135300745366499,
+        -0.25994579387495537,
+        0.6957065083229143,
+        0.6957065083229143
+      ],
+      "test_feature_max": 150.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 1,
+      "geometry": "horizontal_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.994750656167979,
+          "false_positive_rate": 0.35132482826300293,
+          "balanced_accuracy": 0.8217129139524879,
+          "true_positives": 379,
+          "false_positives": 358,
+          "positives": 381,
+          "negatives": 1019,
+          "auc": 0.8175286357115076,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.984251968503937,
+          "false_positive_rate": 0.31305201177625125,
+          "balanced_accuracy": 0.8355999783638429,
+          "true_positives": 375,
+          "false_positives": 319,
+          "positives": 381,
+          "negatives": 1019,
+          "auc": 0.8175286357115076,
+          "threshold": 0.5857187653654782
+        },
+        "stable_margin_fixed": {
+          "recall": 0.994750656167979,
+          "false_positive_rate": 0.35132482826300293,
+          "balanced_accuracy": 0.8217129139524879,
+          "true_positives": 379,
+          "false_positives": 358,
+          "positives": 381,
+          "negatives": 1019,
+          "auc": 0.8175286357115076,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.984251968503937,
+          "false_positive_rate": 0.31305201177625125,
+          "balanced_accuracy": 0.8355999783638429,
+          "true_positives": 375,
+          "false_positives": 319,
+          "positives": 381,
+          "negatives": 1019,
+          "auc": 0.8175286357115076,
+          "threshold": 0.34629469788316347
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -0.9618270846127915,
+        0.18189546517311972,
+        0.3462946978831634,
+        0.4321282402002935
+      ],
+      "test_negative_margin_quantiles": [
+        -1.1635772509207984,
+        -0.17558846771364714,
+        0.6722784624561876,
+        0.6722784624561876
+      ],
+      "test_feature_max": 150.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 1,
+      "geometry": "horizontal_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.8866995073891626,
+          "false_positive_rate": 0.07351712614870509,
+          "balanced_accuracy": 0.9065911906202287,
+          "true_positives": 180,
+          "false_positives": 88,
+          "positives": 203,
+          "negatives": 1197,
+          "auc": 0.935178669168817,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.5320197044334976,
+          "false_positive_rate": 0.005012531328320802,
+          "balanced_accuracy": 0.7635035865525883,
+          "true_positives": 108,
+          "false_positives": 6,
+          "positives": 203,
+          "negatives": 1197,
+          "auc": 0.935178669168817,
+          "threshold": 0.5873194825247756
+        },
+        "stable_margin_fixed": {
+          "recall": 0.8866995073891626,
+          "false_positive_rate": 0.07351712614870509,
+          "balanced_accuracy": 0.9065911906202287,
+          "true_positives": 180,
+          "false_positives": 88,
+          "positives": 203,
+          "negatives": 1197,
+          "auc": 0.935178669168817,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.5320197044334976,
+          "false_positive_rate": 0.005012531328320802,
+          "balanced_accuracy": 0.7635035865525883,
+          "true_positives": 108,
+          "false_positives": 6,
+          "positives": 203,
+          "negatives": 1197,
+          "auc": 0.935178669168817,
+          "threshold": 0.3528952068458996
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -0.9156202851905183,
+        0.1949555628519083,
+        0.35289520684589953,
+        0.43564767387390296
+      ],
+      "test_negative_margin_quantiles": [
+        -1.1892105983182406,
+        -0.21210844392882175,
+        0.02923677063247153,
+        0.49166628072601287
+      ],
+      "test_feature_max": 150.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 1,
+      "geometry": "central_furniture",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.823076923076923,
+          "false_positive_rate": 0.07322834645669292,
+          "balanced_accuracy": 0.874924288310115,
+          "true_positives": 107,
+          "false_positives": 93,
+          "positives": 130,
+          "negatives": 1270,
+          "auc": 0.9252089642640824,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.010236220472440945,
+          "balanced_accuracy": 0.4948818897637795,
+          "true_positives": 0,
+          "false_positives": 13,
+          "positives": 130,
+          "negatives": 1270,
+          "auc": 0.9252089642640824,
+          "threshold": 0.5850374554555873
+        },
+        "stable_margin_fixed": {
+          "recall": 0.823076923076923,
+          "false_positive_rate": 0.07322834645669292,
+          "balanced_accuracy": 0.874924288310115,
+          "true_positives": 107,
+          "false_positives": 93,
+          "positives": 130,
+          "negatives": 1270,
+          "auc": 0.9252089642640824,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.0,
+          "false_positive_rate": 0.010236220472440945,
+          "balanced_accuracy": 0.4948818897637795,
+          "true_positives": 0,
+          "false_positives": 13,
+          "positives": 130,
+          "negatives": 1270,
+          "auc": 0.9252089642640824,
+          "threshold": 0.34348760955435736
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.0257619131612228,
+        0.17238121464673853,
+        0.3434952205215596,
+        0.4351496465004665
+      ],
+      "test_negative_margin_quantiles": [
+        -1.3642441274664572,
+        -0.25708310701897896,
+        0.0484832354987213,
+        0.43613774961849394
+      ],
+      "test_feature_max": 150.8,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 2,
+      "geometry": "vertical_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6828571428571428,
+          "balanced_accuracy": 0.6585714285714286,
+          "true_positives": 700,
+          "false_positives": 478,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.986204081632653,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9728571428571429,
+          "false_positive_rate": 0.041428571428571426,
+          "balanced_accuracy": 0.9657142857142857,
+          "true_positives": 681,
+          "false_positives": 29,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.986204081632653,
+          "threshold": 0.5841222375962002
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6828571428571428,
+          "balanced_accuracy": 0.6585714285714286,
+          "true_positives": 700,
+          "false_positives": 478,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.986204081632653,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9728571428571429,
+          "false_positive_rate": 0.041428571428571426,
+          "balanced_accuracy": 0.9657142857142857,
+          "true_positives": 681,
+          "false_positives": 29,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.986204081632653,
+          "threshold": 0.3397188951719031
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.1190357411595933,
+        -0.3007600988186429,
+        0.1435441002106342,
+        0.5509482298292667
+      ],
+      "test_negative_margin_quantiles": [
+        -0.9726574524325429,
+        0.1704722178790884,
+        0.31813747719519697,
+        0.3948369117738261
+      ],
+      "test_feature_max": 150.0,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 2,
+      "geometry": "vertical_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6714285714285714,
+          "balanced_accuracy": 0.6642857142857144,
+          "true_positives": 700,
+          "false_positives": 470,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9948061224489796,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9914285714285714,
+          "false_positive_rate": 0.2857142857142857,
+          "balanced_accuracy": 0.852857142857143,
+          "true_positives": 694,
+          "false_positives": 200,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9948061224489796,
+          "threshold": 0.5646773041489525
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6714285714285714,
+          "balanced_accuracy": 0.6642857142857144,
+          "true_positives": 700,
+          "false_positives": 470,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9948061224489796,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9914285714285714,
+          "false_positive_rate": 0.2857142857142857,
+          "balanced_accuracy": 0.852857142857143,
+          "true_positives": 694,
+          "false_positives": 200,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9948061224489796,
+          "threshold": 0.2601668392711014
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.1991244042088063,
+        -0.3367379339129631,
+        0.024342189400495855,
+        0.6621313705800502
+      ],
+      "test_negative_margin_quantiles": [
+        -1.0332904404551464,
+        0.16504356562307748,
+        0.3280591354353759,
+        0.4159793992570064
+      ],
+      "test_feature_max": 150.0,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 2,
+      "geometry": "horizontal_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.9985714285714286,
+          "false_positive_rate": 0.6742857142857143,
+          "balanced_accuracy": 0.6621428571428571,
+          "true_positives": 699,
+          "false_positives": 472,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9804510204081632,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9642857142857143,
+          "false_positive_rate": 0.04285714285714286,
+          "balanced_accuracy": 0.9607142857142857,
+          "true_positives": 675,
+          "false_positives": 30,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9804510204081632,
+          "threshold": 0.5891506194639836
+        },
+        "stable_margin_fixed": {
+          "recall": 0.9985714285714286,
+          "false_positive_rate": 0.6742857142857143,
+          "balanced_accuracy": 0.6621428571428571,
+          "true_positives": 699,
+          "false_positives": 472,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9804510204081632,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9642857142857143,
+          "false_positive_rate": 0.04285714285714286,
+          "balanced_accuracy": 0.9607142857142857,
+          "true_positives": 675,
+          "false_positives": 30,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9804510204081632,
+          "threshold": 0.36045519499841494
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.2048778795019717,
+        -0.31997432999320335,
+        0.12811886140371712,
+        0.6638063725459552
+      ],
+      "test_negative_margin_quantiles": [
+        -1.041587015609877,
+        0.17236394359998786,
+        0.33494626423404195,
+        0.42140601926090476
+      ],
+      "test_feature_max": 150.0,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 2,
+      "geometry": "horizontal_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6728571428571428,
+          "balanced_accuracy": 0.6635714285714286,
+          "true_positives": 700,
+          "false_positives": 471,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9996836734693878,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9957142857142857,
+          "false_positive_rate": 0.04285714285714286,
+          "balanced_accuracy": 0.9764285714285713,
+          "true_positives": 697,
+          "false_positives": 30,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9996836734693878,
+          "threshold": 0.5823908587436755
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6728571428571428,
+          "balanced_accuracy": 0.6635714285714286,
+          "true_positives": 700,
+          "false_positives": 471,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9996836734693878,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9957142857142857,
+          "false_positive_rate": 0.04285714285714286,
+          "balanced_accuracy": 0.9764285714285713,
+          "true_positives": 697,
+          "false_positives": 30,
+          "positives": 700,
+          "negatives": 700,
+          "auc": 0.9996836734693878,
+          "threshold": 0.3325958746103587
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.1739410893707238,
+        -0.32445481765263456,
+        0.04458664276732179,
+        0.6010910349037296
+      ],
+      "test_negative_margin_quantiles": [
+        -1.0308362890303946,
+        0.16807930314904207,
+        0.3142245211808933,
+        0.38935870666885036
+      ],
+      "test_feature_max": 150.0,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 2,
+      "geometry": "central_furniture",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.8748137108792846,
+          "false_positive_rate": 0.6378600823045267,
+          "balanced_accuracy": 0.6184768142873789,
+          "true_positives": 587,
+          "false_positives": 465,
+          "positives": 671,
+          "negatives": 729,
+          "auc": 0.7442774230873805,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.39046199701937406,
+          "false_positive_rate": 0.039780521262002745,
+          "balanced_accuracy": 0.6753407378786856,
+          "true_positives": 262,
+          "false_positives": 29,
+          "positives": 671,
+          "negatives": 729,
+          "auc": 0.7442774230873805,
+          "threshold": 0.5838922125985628
+        },
+        "stable_margin_fixed": {
+          "recall": 0.8748137108792846,
+          "false_positive_rate": 0.6378600823045267,
+          "balanced_accuracy": 0.6184768142873789,
+          "true_positives": 587,
+          "false_positives": 465,
+          "positives": 671,
+          "negatives": 729,
+          "auc": 0.7442774230873805,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.39046199701937406,
+          "false_positive_rate": 0.039780521262002745,
+          "balanced_accuracy": 0.6753407378786856,
+          "true_positives": 262,
+          "false_positives": 29,
+          "positives": 671,
+          "negatives": 729,
+          "auc": 0.7442774230873805,
+          "threshold": 0.33877206729542964
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.2946001784271293,
+        -0.36281080141619376,
+        0.18342674317515004,
+        0.6446092606098999
+      ],
+      "test_negative_margin_quantiles": [
+        -1.1297313046074489,
+        0.1385676945919828,
+        0.31427028823900505,
+        0.40102971372159163
+      ],
+      "test_feature_max": 150.0,
+      "train_feature_max": 160.8
+    },
+    {
+      "seed": 3,
+      "geometry": "vertical_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.015647226173541962,
+          "balanced_accuracy": 0.9921763869132291,
+          "true_positives": 697,
+          "false_positives": 11,
+          "positives": 697,
+          "negatives": 703,
+          "auc": 0.9974458714547818,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9899569583931134,
+          "false_positive_rate": 0.004267425320056899,
+          "balanced_accuracy": 0.9928447665365282,
+          "true_positives": 690,
+          "false_positives": 3,
+          "positives": 697,
+          "negatives": 703,
+          "auc": 0.9974458714547818,
+          "threshold": 0.5812052244538604
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.015647226173541962,
+          "balanced_accuracy": 0.9921763869132291,
+          "true_positives": 697,
+          "false_positives": 11,
+          "positives": 697,
+          "negatives": 703,
+          "auc": 0.9974458714547818,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9899569583931134,
+          "false_positive_rate": 0.004267425320056899,
+          "balanced_accuracy": 0.9928447665365282,
+          "true_positives": 690,
+          "false_positives": 3,
+          "positives": 697,
+          "negatives": 703,
+          "auc": 0.9974458714547818,
+          "threshold": 0.327722916636322
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.7386009158666953,
+        -0.09744769575003373,
+        0.249694371682223,
+        5.522177283792744
+      ],
+      "test_negative_margin_quantiles": [
+        -1.2717462185722836,
+        -0.5322586306071643,
+        -0.07371503567618352,
+        0.6103300927415513
+      ],
+      "test_feature_max": 144.2,
+      "train_feature_max": 154.8
+    },
+    {
+      "seed": 3,
+      "geometry": "vertical_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.9826254826254827,
+          "false_positive_rate": 0.11678004535147392,
+          "balanced_accuracy": 0.9329227186370044,
+          "true_positives": 509,
+          "false_positives": 103,
+          "positives": 518,
+          "negatives": 882,
+          "auc": 0.951049081151122,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9131274131274131,
+          "false_positive_rate": 0.08390022675736962,
+          "balanced_accuracy": 0.9146135931850217,
+          "true_positives": 473,
+          "false_positives": 74,
+          "positives": 518,
+          "negatives": 882,
+          "auc": 0.951049081151122,
+          "threshold": 0.5560303105377901
+        },
+        "stable_margin_fixed": {
+          "recall": 0.9826254826254827,
+          "false_positive_rate": 0.11678004535147392,
+          "balanced_accuracy": 0.9329227186370044,
+          "true_positives": 509,
+          "false_positives": 103,
+          "positives": 518,
+          "negatives": 882,
+          "auc": 0.951049081151122,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9131274131274131,
+          "false_positive_rate": 0.08390022675736962,
+          "balanced_accuracy": 0.9146135931850217,
+          "true_positives": 473,
+          "false_positives": 74,
+          "positives": 518,
+          "negatives": 882,
+          "auc": 0.951049081151122,
+          "threshold": 0.22506651499548752
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.8110814911176194,
+        -0.16474881235954664,
+        0.19863621857650834,
+        4.29807229042171
+      ],
+      "test_negative_margin_quantiles": [
+        -1.6147784184934835,
+        -0.5551663157233402,
+        0.30469152561600676,
+        0.4145553419499741
+      ],
+      "test_feature_max": 150.4,
+      "train_feature_max": 154.8
+    },
+    {
+      "seed": 3,
+      "geometry": "horizontal_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.8685897435897436,
+          "false_positive_rate": 0.03952205882352941,
+          "balanced_accuracy": 0.9145338423831071,
+          "true_positives": 271,
+          "false_positives": 43,
+          "positives": 312,
+          "negatives": 1088,
+          "auc": 0.9662783983785822,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.4967948717948718,
+          "false_positive_rate": 0.011948529411764705,
+          "balanced_accuracy": 0.7424231711915535,
+          "true_positives": 155,
+          "false_positives": 13,
+          "positives": 312,
+          "negatives": 1088,
+          "auc": 0.9662783983785822,
+          "threshold": 0.587872687223425
+        },
+        "stable_margin_fixed": {
+          "recall": 0.8685897435897436,
+          "false_positive_rate": 0.03952205882352941,
+          "balanced_accuracy": 0.9145338423831071,
+          "true_positives": 271,
+          "false_positives": 43,
+          "positives": 312,
+          "negatives": 1088,
+          "auc": 0.9662783983785822,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.4967948717948718,
+          "false_positive_rate": 0.011948529411764705,
+          "balanced_accuracy": 0.7424231711915535,
+          "true_positives": 155,
+          "false_positives": 13,
+          "positives": 312,
+          "negatives": 1088,
+          "auc": 0.9662783983785822,
+          "threshold": 0.355178092918735
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.7698626310170988,
+        -0.04732322578667698,
+        0.2861478007559616,
+        4.922414515652948
+      ],
+      "test_negative_margin_quantiles": [
+        -1.5223761862648615,
+        -0.5753261731356171,
+        -0.037531515095544095,
+        0.568795253040162
+      ],
+      "test_feature_max": 157.4,
+      "train_feature_max": 154.8
+    },
+    {
+      "seed": 3,
+      "geometry": "horizontal_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.7846153846153846,
+          "false_positive_rate": 0.07790262172284644,
+          "balanced_accuracy": 0.853356381446269,
+          "true_positives": 51,
+          "false_positives": 104,
+          "positives": 65,
+          "negatives": 1335,
+          "auc": 0.9353615672716796,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.2923076923076923,
+          "false_positive_rate": 0.030711610486891385,
+          "balanced_accuracy": 0.6307980409104005,
+          "true_positives": 19,
+          "false_positives": 41,
+          "positives": 65,
+          "negatives": 1335,
+          "auc": 0.9353615672716796,
+          "threshold": 0.5769613405672237
+        },
+        "stable_margin_fixed": {
+          "recall": 0.7846153846153846,
+          "false_positive_rate": 0.07790262172284644,
+          "balanced_accuracy": 0.853356381446269,
+          "true_positives": 51,
+          "false_positives": 104,
+          "positives": 65,
+          "negatives": 1335,
+          "auc": 0.9353615672716796,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.2923076923076923,
+          "false_positive_rate": 0.030711610486891385,
+          "balanced_accuracy": 0.6307980409104005,
+          "true_positives": 19,
+          "false_positives": 41,
+          "positives": 65,
+          "negatives": 1335,
+          "auc": 0.9353615672716796,
+          "threshold": 0.3103116951851527
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -10.723584806924876,
+        -0.0891142870100124,
+        0.25479875917128686,
+        0.44722715318128853
+      ],
+      "test_negative_margin_quantiles": [
+        -1.2639879602767146,
+        -0.49319718346074354,
+        0.18720431514723795,
+        0.5521146623277834
+      ],
+      "test_feature_max": 144.2,
+      "train_feature_max": 154.8
+    },
+    {
+      "seed": 3,
+      "geometry": "central_furniture",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.7792207792207793,
+          "false_positive_rate": 0.021164021164021163,
+          "balanced_accuracy": 0.879028379028379,
+          "true_positives": 60,
+          "false_positives": 28,
+          "positives": 77,
+          "negatives": 1323,
+          "auc": 0.9783157130095905,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.03896103896103896,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5194805194805194,
+          "true_positives": 3,
+          "false_positives": 0,
+          "positives": 77,
+          "negatives": 1323,
+          "auc": 0.9783157130095905,
+          "threshold": 0.574198149257746
+        },
+        "stable_margin_fixed": {
+          "recall": 0.7792207792207793,
+          "false_positive_rate": 0.021164021164021163,
+          "balanced_accuracy": 0.879028379028379,
+          "true_positives": 60,
+          "false_positives": 28,
+          "positives": 77,
+          "negatives": 1323,
+          "auc": 0.9783157130095905,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.03896103896103896,
+          "false_positive_rate": 0.0,
+          "balanced_accuracy": 0.5194805194805194,
+          "true_positives": 3,
+          "false_positives": 0,
+          "positives": 77,
+          "negatives": 1323,
+          "auc": 0.9783157130095905,
+          "threshold": 0.2990004455592511
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.9610427866232272,
+        -0.1534775073714997,
+        0.22610216463666252,
+        1.6685255686076614
+      ],
+      "test_negative_margin_quantiles": [
+        -1.4699868259313498,
+        -0.6889120686603086,
+        -0.09067773316424908,
+        0.22580244799990892
+      ],
+      "test_feature_max": 144.2,
+      "train_feature_max": 154.8
+    },
+    {
+      "seed": 4,
+      "geometry": "vertical_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.9701726844583988,
+          "false_positive_rate": 0.3577981651376147,
+          "balanced_accuracy": 0.806187259660392,
+          "true_positives": 618,
+          "false_positives": 273,
+          "positives": 637,
+          "negatives": 763,
+          "auc": 0.9616279620024237,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6146788990825688,
+          "balanced_accuracy": 0.6926605504587156,
+          "true_positives": 637,
+          "false_positives": 469,
+          "positives": 637,
+          "negatives": 763,
+          "auc": 0.9616279620024237,
+          "threshold": 0.4019115891674473
+        },
+        "stable_margin_fixed": {
+          "recall": 0.9701726844583988,
+          "false_positive_rate": 0.3577981651376147,
+          "balanced_accuracy": 0.806187259660392,
+          "true_positives": 618,
+          "false_positives": 273,
+          "positives": 637,
+          "negatives": 763,
+          "auc": 0.9616300194843539,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6146788990825688,
+          "balanced_accuracy": 0.6926605504587156,
+          "true_positives": 637,
+          "false_positives": 469,
+          "positives": 637,
+          "negatives": 763,
+          "auc": 0.9616300194843539,
+          "threshold": -0.39750645023707415
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.8362835646909368,
+        -0.6400515057646694,
+        -0.4056109695022814,
+        1.2002802291214392
+      ],
+      "test_negative_margin_quantiles": [
+        -1.6079147254620676,
+        -0.12668360462977085,
+        0.15310075435574214,
+        15.124925582461211
+      ],
+      "test_feature_max": 160.8,
+      "train_feature_max": 157.4
+    },
+    {
+      "seed": 4,
+      "geometry": "vertical_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.46379853095487933,
+          "balanced_accuracy": 0.7681007345225603,
+          "true_positives": 447,
+          "false_positives": 442,
+          "positives": 447,
+          "negatives": 953,
+          "auc": 0.9817226185529742,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6526757607555089,
+          "balanced_accuracy": 0.6736621196222455,
+          "true_positives": 447,
+          "false_positives": 622,
+          "positives": 447,
+          "negatives": 953,
+          "auc": 0.9817226185529742,
+          "threshold": 0.4342382701421382
+        },
+        "stable_margin_fixed": {
+          "recall": 1.0,
+          "false_positive_rate": 0.46379853095487933,
+          "balanced_accuracy": 0.7681007345225603,
+          "true_positives": 447,
+          "false_positives": 442,
+          "positives": 447,
+          "negatives": 953,
+          "auc": 0.9817249660204089,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.6526757607555089,
+          "balanced_accuracy": 0.6736621196222455,
+          "true_positives": 447,
+          "false_positives": 622,
+          "positives": 447,
+          "negatives": 953,
+          "auc": 0.9817249660204089,
+          "threshold": -0.2645796245931271
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -1.8976703458778539,
+        -0.6516157102575686,
+        -0.4168110613816704,
+        1.1018566522093447
+      ],
+      "test_negative_margin_quantiles": [
+        -1.6624986671103887,
+        -0.012284625988956355,
+        0.2558121130408351,
+        14.310726504739975
+      ],
+      "test_feature_max": 160.8,
+      "train_feature_max": 157.4
+    },
+    {
+      "seed": 4,
+      "geometry": "horizontal_near",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.711340206185567,
+          "false_positive_rate": 0.20649233543733092,
+          "balanced_accuracy": 0.7524239353741181,
+          "true_positives": 207,
+          "false_positives": 229,
+          "positives": 291,
+          "negatives": 1109,
+          "auc": 0.8730892820069472,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 0.9587628865979382,
+          "false_positive_rate": 0.4192966636609558,
+          "balanced_accuracy": 0.7697331114684912,
+          "true_positives": 279,
+          "false_positives": 465,
+          "positives": 291,
+          "negatives": 1109,
+          "auc": 0.8730892820069472,
+          "threshold": 0.4218016281240951
+        },
+        "stable_margin_fixed": {
+          "recall": 0.711340206185567,
+          "false_positive_rate": 0.20649233543733092,
+          "balanced_accuracy": 0.7524239353741181,
+          "true_positives": 207,
+          "false_positives": 229,
+          "positives": 291,
+          "negatives": 1109,
+          "auc": 0.8730892820069472,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 0.9587628865979382,
+          "false_positive_rate": 0.4192966636609558,
+          "balanced_accuracy": 0.7697331114684912,
+          "true_positives": 279,
+          "false_positives": 465,
+          "positives": 291,
+          "negatives": 1109,
+          "auc": 0.8730892820069472,
+          "threshold": -0.31538188574837805
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -2.0803823999731743,
+        -0.6958784714092404,
+        -0.4465417757356748,
+        0.9308028228550252
+      ],
+      "test_negative_margin_quantiles": [
+        -2.0366046843168673,
+        -0.43838645210565524,
+        0.12055745977998923,
+        12.958279342942054
+      ],
+      "test_feature_max": 160.8,
+      "train_feature_max": 150.8
+    },
+    {
+      "seed": 4,
+      "geometry": "horizontal_mid",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.8641975308641975,
+          "false_positive_rate": 0.11675511751326763,
+          "balanced_accuracy": 0.8737212066754648,
+          "true_positives": 70,
+          "false_positives": 154,
+          "positives": 81,
+          "negatives": 1319,
+          "auc": 0.9557932964554142,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.5314632297194845,
+          "balanced_accuracy": 0.7342683851402578,
+          "true_positives": 81,
+          "false_positives": 701,
+          "positives": 81,
+          "negatives": 1319,
+          "auc": 0.9557932964554142,
+          "threshold": 0.3892579061794016
+        },
+        "stable_margin_fixed": {
+          "recall": 0.8641975308641975,
+          "false_positive_rate": 0.11675511751326763,
+          "balanced_accuracy": 0.8737212066754648,
+          "true_positives": 70,
+          "false_positives": 154,
+          "positives": 81,
+          "negatives": 1319,
+          "auc": 0.9557932964554142,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.5314632297194845,
+          "balanced_accuracy": 0.7342683851402578,
+          "true_positives": 81,
+          "false_positives": 701,
+          "positives": 81,
+          "negatives": 1319,
+          "auc": 0.9557932964554142,
+          "threshold": -0.45043264319731735
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -2.1493244775393303,
+        -0.6929130215977715,
+        -0.5192655675772975,
+        0.3552424879051548
+      ],
+      "test_negative_margin_quantiles": [
+        -1.6209363626465925,
+        -0.3895769801859224,
+        0.05199369446677813,
+        0.1536167742348991
+      ],
+      "test_feature_max": 160.8,
+      "train_feature_max": 157.4
+    },
+    {
+      "seed": 4,
+      "geometry": "central_furniture",
+      "variants": {
+        "probability_fixed": {
+          "recall": 0.7528089887640449,
+          "false_positive_rate": 0.13653699466056446,
+          "balanced_accuracy": 0.8081359970517401,
+          "true_positives": 67,
+          "false_positives": 179,
+          "positives": 89,
+          "negatives": 1311,
+          "auc": 0.9113722263646414,
+          "threshold": 0.5
+        },
+        "probability_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.501906941266209,
+          "balanced_accuracy": 0.7490465293668955,
+          "true_positives": 89,
+          "false_positives": 658,
+          "positives": 89,
+          "negatives": 1311,
+          "auc": 0.9113722263646414,
+          "threshold": 0.41219871471766495
+        },
+        "stable_margin_fixed": {
+          "recall": 0.7528089887640449,
+          "false_positive_rate": 0.13653699466056446,
+          "balanced_accuracy": 0.8081359970517401,
+          "true_positives": 67,
+          "false_positives": 179,
+          "positives": 89,
+          "negatives": 1311,
+          "auc": 0.9113722263646414,
+          "threshold": 0.0
+        },
+        "stable_margin_calibrated05": {
+          "recall": 1.0,
+          "false_positive_rate": 0.501906941266209,
+          "balanced_accuracy": 0.7490465293668955,
+          "true_positives": 89,
+          "false_positives": 658,
+          "positives": 89,
+          "negatives": 1311,
+          "auc": 0.9113722263646414,
+          "threshold": -0.354883390232658
+        }
+      },
+      "calibration_saturation": 0.0,
+      "test_saturation": 0.0,
+      "calibration_negative_margin_quantiles": [
+        -2.039094380883143,
+        -0.6726493343347938,
+        -0.45955738270016633,
+        0.8449965405432108
+      ],
+      "test_negative_margin_quantiles": [
+        -1.699996207326189,
+        -0.34464022711088366,
+        0.0652873271639722,
+        16.395227961787743
+      ],
+      "test_feature_max": 160.8,
+      "train_feature_max": 157.4
+    }
+  ],
+  "summary": {
+    "probability_fixed": {
+      "all": {
+        "recall": 0.8521192042260448,
+        "false_positive_rate": 0.22530257600262235,
+        "balanced_accuracy": 0.8134083141117111,
+        "auc": 0.9268210500878715,
+        "zero_recall_folds": 1
+      },
+      "central_furniture": {
+        "recall": 0.6459840803882063,
+        "false_positive_rate": 0.17375788891716107,
+        "balanced_accuracy": 0.7361130957355225,
+        "auc": 0.7952606928729856,
+        "zero_recall_folds": 1
+      },
+      "horizontal_mid": {
+        "recall": 0.9062453417166061,
+        "false_positive_rate": 0.1882064016483924,
+        "balanced_accuracy": 0.8590194700341067,
+        "auc": 0.9652034412730597,
+        "zero_recall_folds": 0
+      },
+      "horizontal_near": {
+        "recall": 0.9017932640458008,
+        "false_positive_rate": 0.2543249873619155,
+        "balanced_accuracy": 0.8237341383419425,
+        "auc": 0.92746946730104,
+        "zero_recall_folds": 0
+      },
+      "vertical_mid": {
+        "recall": 0.8273536129027459,
+        "false_positive_rate": 0.279782872845954,
+        "balanced_accuracy": 0.773785370028396,
+        "auc": 0.9586749050805097,
+        "zero_recall_folds": 0
+      },
+      "vertical_near": {
+        "recall": 0.9792197220768649,
+        "false_positive_rate": 0.23044072923968875,
+        "balanced_accuracy": 0.8743894964185882,
+        "auc": 0.9874967439117622,
+        "zero_recall_folds": 0
+      }
+    },
+    "probability_calibrated05": {
+      "all": {
+        "recall": 0.6200349175533734,
+        "false_positive_rate": 0.14930299445343473,
+        "balanced_accuracy": 0.7353659615499692,
+        "auc": 0.9268210500878715,
+        "zero_recall_folds": 6
+      },
+      "central_furniture": {
+        "recall": 0.2858846071960826,
+        "false_positive_rate": 0.11038473660013055,
+        "balanced_accuracy": 0.587749935297976,
+        "auc": 0.7952606928729856,
+        "zero_recall_folds": 2
+      },
+      "horizontal_mid": {
+        "recall": 0.5640083364910952,
+        "false_positive_rate": 0.1220089028783679,
+        "balanced_accuracy": 0.7209997168063635,
+        "auc": 0.9652034412730597,
+        "zero_recall_folds": 1
+      },
+      "horizontal_near": {
+        "recall": 0.6808190882364923,
+        "false_positive_rate": 0.15743086954122293,
+        "balanced_accuracy": 0.7616941093476347,
+        "auc": 0.92746946730104,
+        "zero_recall_folds": 1
+      },
+      "vertical_mid": {
+        "recall": 0.7809111969111969,
+        "false_positive_rate": 0.22404568351141224,
+        "balanced_accuracy": 0.7784327566998923,
+        "auc": 0.9586749050805097,
+        "zero_recall_folds": 1
+      },
+      "vertical_near": {
+        "recall": 0.7885513589319997,
+        "false_positive_rate": 0.13264477973604,
+        "balanced_accuracy": 0.8279532895979799,
+        "auc": 0.9874967439117622,
+        "zero_recall_folds": 1
+      }
+    },
+    "stable_margin_fixed": {
+      "all": {
+        "recall": 0.8521192042260448,
+        "false_positive_rate": 0.22530257600262235,
+        "balanced_accuracy": 0.8134083141117111,
+        "auc": 0.9268212262858461,
+        "zero_recall_folds": 1
+      },
+      "central_furniture": {
+        "recall": 0.6459840803882063,
+        "false_positive_rate": 0.17375788891716107,
+        "balanced_accuracy": 0.7361130957355225,
+        "auc": 0.7952606928729856,
+        "zero_recall_folds": 1
+      },
+      "horizontal_mid": {
+        "recall": 0.9062453417166061,
+        "false_positive_rate": 0.1882064016483924,
+        "balanced_accuracy": 0.8590194700341067,
+        "auc": 0.9652034412730597,
+        "zero_recall_folds": 0
+      },
+      "horizontal_near": {
+        "recall": 0.9017932640458008,
+        "false_positive_rate": 0.2543249873619155,
+        "balanced_accuracy": 0.8237341383419425,
+        "auc": 0.92746946730104,
+        "zero_recall_folds": 0
+      },
+      "vertical_mid": {
+        "recall": 0.8273536129027459,
+        "false_positive_rate": 0.279782872845954,
+        "balanced_accuracy": 0.773785370028396,
+        "auc": 0.9586753745739968,
+        "zero_recall_folds": 0
+      },
+      "vertical_near": {
+        "recall": 0.9792197220768649,
+        "false_positive_rate": 0.23044072923968875,
+        "balanced_accuracy": 0.8743894964185882,
+        "auc": 0.9874971554081483,
+        "zero_recall_folds": 0
+      }
+    },
+    "stable_margin_calibrated05": {
+      "all": {
+        "recall": 0.6200349175533734,
+        "false_positive_rate": 0.14930299445343473,
+        "balanced_accuracy": 0.7353659615499692,
+        "auc": 0.9268212262858461,
+        "zero_recall_folds": 6
+      },
+      "central_furniture": {
+        "recall": 0.2858846071960826,
+        "false_positive_rate": 0.11038473660013055,
+        "balanced_accuracy": 0.587749935297976,
+        "auc": 0.7952606928729856,
+        "zero_recall_folds": 2
+      },
+      "horizontal_mid": {
+        "recall": 0.5640083364910952,
+        "false_positive_rate": 0.1220089028783679,
+        "balanced_accuracy": 0.7209997168063635,
+        "auc": 0.9652034412730597,
+        "zero_recall_folds": 1
+      },
+      "horizontal_near": {
+        "recall": 0.6808190882364923,
+        "false_positive_rate": 0.15743086954122293,
+        "balanced_accuracy": 0.7616941093476347,
+        "auc": 0.92746946730104,
+        "zero_recall_folds": 1
+      },
+      "vertical_mid": {
+        "recall": 0.7809111969111969,
+        "false_positive_rate": 0.22404568351141224,
+        "balanced_accuracy": 0.7784327566998923,
+        "auc": 0.9586753745739968,
+        "zero_recall_folds": 1
+      },
+      "vertical_near": {
+        "recall": 0.7885513589319997,
+        "false_positive_rate": 0.13264477973604,
+        "balanced_accuracy": 0.8279532895979799,
+        "auc": 0.9874971554081483,
+        "zero_recall_folds": 1
+      }
+    }
+  }
+}
