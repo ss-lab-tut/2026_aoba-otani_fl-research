@@ -230,3 +230,5 @@ __pycache__/
 !/results/condition_shape_models.json
 !/results/condition_robustness_holdout.json
 !/configs/condition_robustness_holdout.json
+!/configs/condition_robustness_holdout_v2.json
+!/results/condition_robustness_holdout_v2.json

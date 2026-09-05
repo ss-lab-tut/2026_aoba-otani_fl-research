@@ -1,0 +1,222 @@
+{
+  "purpose": "Second frozen confirmation after first confirmation failed wide furniture; first confirmation is now development evidence",
+  "train_seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "threshold_calibration_seeds": [
+    4
+  ],
+  "test_seeds": [
+    201,
+    202,
+    203,
+    204,
+    205
+  ],
+  "training_geometries": "original five GEOMETRIES",
+  "n_steps": 800,
+  "calibration_steps": 100,
+  "minimum_point_loss_ratio": 0.1,
+  "model": "QuadraticRidgeScore",
+  "ridge_strength": 1.0,
+  "standardized_clip": 8.0,
+  "trailing_window": 5,
+  "calibration_max_fpr_per_geometry": 0.05,
+  "test_geometries": [
+    {
+      "name": "vertical_new",
+      "occluders": [
+        {
+          "name": "wall",
+          "x_min": 2.0,
+          "x_max": 2.2,
+          "y_min": 0.0,
+          "y_max": 5.0,
+          "height": 2.35
+        }
+      ]
+    },
+    {
+      "name": "horizontal_new",
+      "occluders": [
+        {
+          "name": "wall",
+          "x_min": 0.0,
+          "x_max": 5.0,
+          "y_min": 2.0,
+          "y_max": 2.2,
+          "height": 2.35
+        }
+      ]
+    },
+    {
+      "name": "low_new",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 1.1,
+          "x_max": 2.4,
+          "y_min": 2.4,
+          "y_max": 3.8,
+          "height": 0.6
+        }
+      ]
+    },
+    {
+      "name": "wide_new",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 1.6,
+          "x_max": 3.3,
+          "y_min": 1.4,
+          "y_max": 2.9,
+          "height": 1.2
+        }
+      ]
+    },
+    {
+      "name": "two_new",
+      "occluders": [
+        {
+          "name": "left",
+          "x_min": 0.8,
+          "x_max": 1.7,
+          "y_min": 1.6,
+          "y_max": 2.7,
+          "height": 0.6
+        },
+        {
+          "name": "right",
+          "x_min": 2.7,
+          "x_max": 3.6,
+          "y_min": 2.1,
+          "y_max": 3.3,
+          "height": 1.2
+        }
+      ]
+    }
+  ],
+  "exploratory_engineering_acceptance": {
+    "mean_recall_min": 0.9,
+    "mean_fpr_max": 0.1,
+    "each_geometry_mean_recall_min": 0.8,
+    "each_geometry_mean_fpr_max": 0.1,
+    "each_seed_geometry_recall_min": 0.7
+  },
+  "restrictions": [
+    "Do not tune on test scores or labels",
+    "No claim about arbitrary unseen geometry or real LiDAR",
+    "No simulator metadata or raw point count as model input"
+  ],
+  "test_cache": "local_condition_confirmation_v2_cache.npz",
+  "augmented_training_geometries": [
+    {
+      "name": "train_furniture_h0.45_p0",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 1.2,
+          "x_max": 2.5999999999999996,
+          "y_min": 1.8,
+          "y_max": 3.4000000000000004,
+          "height": 0.45
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h0.45_p1",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 2.3,
+          "x_max": 3.6999999999999997,
+          "y_min": 1.1,
+          "y_max": 2.7,
+          "height": 0.45
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h0.7_p0",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 1.2,
+          "x_max": 2.5999999999999996,
+          "y_min": 1.8,
+          "y_max": 3.4000000000000004,
+          "height": 0.7
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h0.7_p1",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 2.3,
+          "x_max": 3.6999999999999997,
+          "y_min": 1.1,
+          "y_max": 2.7,
+          "height": 0.7
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h1.15_p0",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 1.2,
+          "x_max": 2.5999999999999996,
+          "y_min": 1.8,
+          "y_max": 3.4000000000000004,
+          "height": 1.15
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h1.15_p1",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 2.3,
+          "x_max": 3.6999999999999997,
+          "y_min": 1.1,
+          "y_max": 2.7,
+          "height": 1.15
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h1.5_p0",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 1.2,
+          "x_max": 2.5999999999999996,
+          "y_min": 1.8,
+          "y_max": 3.4000000000000004,
+          "height": 1.5
+        }
+      ]
+    },
+    {
+      "name": "train_furniture_h1.5_p1",
+      "occluders": [
+        {
+          "name": "furniture",
+          "x_min": 2.3,
+          "x_max": 3.6999999999999997,
+          "y_min": 1.1,
+          "y_max": 2.7,
+          "height": 1.5
+        }
+      ]
+    }
+  ]
+}
