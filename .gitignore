@@ -232,3 +232,11 @@ __pycache__/
 !/configs/condition_robustness_holdout.json
 !/configs/condition_robustness_holdout_v2.json
 !/results/condition_robustness_holdout_v2.json
+!/results/temporal_overlap_audit.json
+!/results/real_fall_baseline.json
+!/results/real_2d_input_stress.json
+/results/local_*.pt
+!/results/data_audit.json
+!/results/label_disagreement_context.json
+!/configs/real_2d_mask_calibration.json
+!/results/real_2d_mask_calibration.json

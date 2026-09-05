@@ -1,0 +1,953 @@
+{
+  "status": "exploratory_2d_zero_mask_stress_not_physical_occlusion_or_P1_validation",
+  "baseline_file": "real_fall_baseline.json",
+  "scenarios": [
+    [
+      "unmasked",
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      "mask15",
+      0.15,
+      0.1,
+      0.65
+    ],
+    [
+      "mask35",
+      0.35,
+      0.3,
+      0.8
+    ]
+  ],
+  "folds": [
+    {
+      "seed": 0,
+      "common_threshold": 0.9992382526397706,
+      "quality_thresholds": {
+        "high_zero_fraction": 0.9992382526397706,
+        "low_zero_fraction": 0.8144004344940187,
+        "medium_zero_fraction": 0.33037653565406805
+      },
+      "policies": {
+        "clean_calibration_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 48,
+            "false_alert_rate": 0.09467455621301775,
+            "true_positives": 171,
+            "false_negatives": 0,
+            "false_positives": 48,
+            "true_negatives": 459,
+            "positive_windows": 171,
+            "negative_windows": 507
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 13,
+            "false_alert_rate": 0.07692307692307693,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 13,
+            "true_negatives": 156,
+            "positive_windows": 57,
+            "negative_windows": 169
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 24,
+            "false_alert_rate": 0.14201183431952663,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 24,
+            "true_negatives": 145,
+            "positive_windows": 57,
+            "negative_windows": 169
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 11,
+            "false_alert_rate": 0.0650887573964497,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 11,
+            "true_negatives": 158,
+            "positive_windows": 57,
+            "negative_windows": 169
+          }
+        ],
+        "stress_common_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 1,
+            "false_alert_rate": 0.0019723865877712033,
+            "true_positives": 171,
+            "false_negatives": 0,
+            "false_positives": 1,
+            "true_negatives": 506,
+            "positive_windows": 171,
+            "negative_windows": 507
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 169,
+            "positive_windows": 57,
+            "negative_windows": 169
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 1,
+            "false_alert_rate": 0.005917159763313609,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 1,
+            "true_negatives": 168,
+            "positive_windows": 57,
+            "negative_windows": 169
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 169,
+            "positive_windows": 57,
+            "negative_windows": 169
+          }
+        ],
+        "observed_quality_thresholds": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 39,
+            "false_alert_rate": 0.07692307692307693,
+            "true_positives": 171,
+            "false_negatives": 0,
+            "false_positives": 39,
+            "true_negatives": 468,
+            "positive_windows": 171,
+            "negative_windows": 507
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 27,
+            "false_alert_rate": 0.15976331360946747,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 27,
+            "true_negatives": 142,
+            "positive_windows": 57,
+            "negative_windows": 169
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 1,
+            "false_alert_rate": 0.005917159763313609,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 1,
+            "true_negatives": 168,
+            "positive_windows": 57,
+            "negative_windows": 169
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 11,
+            "false_alert_rate": 0.0650887573964497,
+            "true_positives": 57,
+            "false_negatives": 0,
+            "false_positives": 11,
+            "true_negatives": 158,
+            "positive_windows": 57,
+            "negative_windows": 169
+          }
+        ]
+      }
+    },
+    {
+      "seed": 1,
+      "common_threshold": 0.9999223947525026,
+      "quality_thresholds": {
+        "high_zero_fraction": 0.40325900912284857,
+        "low_zero_fraction": 0.9989646673202516,
+        "medium_zero_fraction": 0.9999223947525026
+      },
+      "policies": {
+        "clean_calibration_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 1,
+            "false_alert_rate": 0.00196078431372549,
+            "true_positives": 168,
+            "false_negatives": 0,
+            "false_positives": 1,
+            "true_negatives": 509,
+            "positive_windows": 168,
+            "negative_windows": 510
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 1,
+            "false_alert_rate": 0.0058823529411764705,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 1,
+            "true_negatives": 169,
+            "positive_windows": 56,
+            "negative_windows": 170
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          }
+        ],
+        "stress_common_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.9940476190476191,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 167,
+            "false_negatives": 1,
+            "false_positives": 0,
+            "true_negatives": 510,
+            "positive_windows": 168,
+            "negative_windows": 510
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.9821428571428571,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 55,
+            "false_negatives": 1,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          }
+        ],
+        "observed_quality_thresholds": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 67,
+            "false_alert_rate": 0.13137254901960785,
+            "true_positives": 168,
+            "false_negatives": 0,
+            "false_positives": 67,
+            "true_negatives": 443,
+            "positive_windows": 168,
+            "negative_windows": 510
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 67,
+            "false_alert_rate": 0.3941176470588235,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 67,
+            "true_negatives": 103,
+            "positive_windows": 56,
+            "negative_windows": 170
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 56,
+            "false_negatives": 0,
+            "false_positives": 0,
+            "true_negatives": 170,
+            "positive_windows": 56,
+            "negative_windows": 170
+          }
+        ]
+      }
+    },
+    {
+      "seed": 2,
+      "common_threshold": 0.9828538894653321,
+      "quality_thresholds": {
+        "high_zero_fraction": 0.8582455515861512,
+        "low_zero_fraction": 0.8736566305160524,
+        "medium_zero_fraction": 0.9828538894653321
+      },
+      "policies": {
+        "clean_calibration_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.847953216374269,
+            "false_alerts": 2,
+            "false_alert_rate": 0.003898635477582846,
+            "true_positives": 145,
+            "false_negatives": 26,
+            "false_positives": 2,
+            "true_negatives": 511,
+            "positive_windows": 171,
+            "negative_windows": 513
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 0.8421052631578947,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 48,
+            "false_negatives": 9,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 0.9122807017543859,
+            "false_alerts": 2,
+            "false_alert_rate": 0.011695906432748537,
+            "true_positives": 52,
+            "false_negatives": 5,
+            "false_positives": 2,
+            "true_negatives": 169,
+            "positive_windows": 57,
+            "negative_windows": 171
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.7894736842105263,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 45,
+            "false_negatives": 12,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          }
+        ],
+        "stress_common_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.7543859649122807,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 129,
+            "false_negatives": 42,
+            "false_positives": 0,
+            "true_negatives": 513,
+            "positive_windows": 171,
+            "negative_windows": 513
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 0.7368421052631579,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 42,
+            "false_negatives": 15,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 0.7894736842105263,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 45,
+            "false_negatives": 12,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.7368421052631579,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 42,
+            "false_negatives": 15,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          }
+        ],
+        "observed_quality_thresholds": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.8128654970760234,
+            "false_alerts": 3,
+            "false_alert_rate": 0.005847953216374269,
+            "true_positives": 139,
+            "false_negatives": 32,
+            "false_positives": 3,
+            "true_negatives": 510,
+            "positive_windows": 171,
+            "negative_windows": 513
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 0.7368421052631579,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 42,
+            "false_negatives": 15,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 0.9122807017543859,
+            "false_alerts": 3,
+            "false_alert_rate": 0.017543859649122806,
+            "true_positives": 52,
+            "false_negatives": 5,
+            "false_positives": 3,
+            "true_negatives": 168,
+            "positive_windows": 57,
+            "negative_windows": 171
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.7894736842105263,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 45,
+            "false_negatives": 12,
+            "false_positives": 0,
+            "true_negatives": 171,
+            "positive_windows": 57,
+            "negative_windows": 171
+          }
+        ]
+      }
+    },
+    {
+      "seed": 3,
+      "common_threshold": 0.03326667845249177,
+      "quality_thresholds": {
+        "high_zero_fraction": 0.03326667845249177,
+        "low_zero_fraction": 0.00835871882736683,
+        "medium_zero_fraction": 0.024424236267805103
+      },
+      "policies": {
+        "clean_calibration_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 120,
+            "false_alert_rate": 0.25316455696202533,
+            "true_positives": 201,
+            "false_negatives": 0,
+            "false_positives": 120,
+            "true_negatives": 354,
+            "positive_windows": 201,
+            "negative_windows": 474
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 32,
+            "false_alert_rate": 0.20253164556962025,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 32,
+            "true_negatives": 126,
+            "positive_windows": 67,
+            "negative_windows": 158
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 71,
+            "false_alert_rate": 0.44936708860759494,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 71,
+            "true_negatives": 87,
+            "positive_windows": 67,
+            "negative_windows": 158
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 17,
+            "false_alert_rate": 0.10759493670886076,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 17,
+            "true_negatives": 141,
+            "positive_windows": 67,
+            "negative_windows": 158
+          }
+        ],
+        "stress_common_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 69,
+            "false_alert_rate": 0.14556962025316456,
+            "true_positives": 201,
+            "false_negatives": 0,
+            "false_positives": 69,
+            "true_negatives": 405,
+            "positive_windows": 201,
+            "negative_windows": 474
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 14,
+            "false_alert_rate": 0.08860759493670886,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 14,
+            "true_negatives": 144,
+            "positive_windows": 67,
+            "negative_windows": 158
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 42,
+            "false_alert_rate": 0.26582278481012656,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 42,
+            "true_negatives": 116,
+            "positive_windows": 67,
+            "negative_windows": 158
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 13,
+            "false_alert_rate": 0.08227848101265822,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 13,
+            "true_negatives": 145,
+            "positive_windows": 67,
+            "negative_windows": 158
+          }
+        ],
+        "observed_quality_thresholds": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 74,
+            "false_alert_rate": 0.15611814345991562,
+            "true_positives": 201,
+            "false_negatives": 0,
+            "false_positives": 74,
+            "true_negatives": 400,
+            "positive_windows": 201,
+            "negative_windows": 474
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 15,
+            "false_alert_rate": 0.0949367088607595,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 15,
+            "true_negatives": 143,
+            "positive_windows": 67,
+            "negative_windows": 158
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 42,
+            "false_alert_rate": 0.26582278481012656,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 42,
+            "true_negatives": 116,
+            "positive_windows": 67,
+            "negative_windows": 158
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 17,
+            "false_alert_rate": 0.10759493670886076,
+            "true_positives": 67,
+            "false_negatives": 0,
+            "false_positives": 17,
+            "true_negatives": 141,
+            "positive_windows": 67,
+            "negative_windows": 158
+          }
+        ]
+      }
+    },
+    {
+      "seed": 4,
+      "common_threshold": 0.039580818265676505,
+      "quality_thresholds": {
+        "high_zero_fraction": 0.0021252189762890343,
+        "low_zero_fraction": 0.0026335194706916813,
+        "medium_zero_fraction": 0.039580818265676505
+      },
+      "policies": {
+        "clean_calibration_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.7236467236467237,
+            "false_alerts": 62,
+            "false_alert_rate": 0.18128654970760233,
+            "true_positives": 254,
+            "false_negatives": 97,
+            "false_positives": 62,
+            "true_negatives": 280,
+            "positive_windows": 351,
+            "negative_windows": 342
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 0.6239316239316239,
+            "false_alerts": 3,
+            "false_alert_rate": 0.02631578947368421,
+            "true_positives": 73,
+            "false_negatives": 44,
+            "false_positives": 3,
+            "true_negatives": 111,
+            "positive_windows": 117,
+            "negative_windows": 114
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 0.9914529914529915,
+            "false_alerts": 57,
+            "false_alert_rate": 0.5,
+            "true_positives": 116,
+            "false_negatives": 1,
+            "false_positives": 57,
+            "true_negatives": 57,
+            "positive_windows": 117,
+            "negative_windows": 114
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.5555555555555556,
+            "false_alerts": 2,
+            "false_alert_rate": 0.017543859649122806,
+            "true_positives": 65,
+            "false_negatives": 52,
+            "false_positives": 2,
+            "true_negatives": 112,
+            "positive_windows": 117,
+            "negative_windows": 114
+          }
+        ],
+        "stress_common_threshold": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.6210826210826211,
+            "false_alerts": 26,
+            "false_alert_rate": 0.07602339181286549,
+            "true_positives": 218,
+            "false_negatives": 133,
+            "false_positives": 26,
+            "true_negatives": 316,
+            "positive_windows": 351,
+            "negative_windows": 342
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 0.49572649572649574,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 58,
+            "false_negatives": 59,
+            "false_positives": 0,
+            "true_negatives": 114,
+            "positive_windows": 117,
+            "negative_windows": 114
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 0.8803418803418803,
+            "false_alerts": 26,
+            "false_alert_rate": 0.22807017543859648,
+            "true_positives": 103,
+            "false_negatives": 14,
+            "false_positives": 26,
+            "true_negatives": 88,
+            "positive_windows": 117,
+            "negative_windows": 114
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.48717948717948717,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 57,
+            "false_negatives": 60,
+            "false_positives": 0,
+            "true_negatives": 114,
+            "positive_windows": 117,
+            "negative_windows": 114
+          }
+        ],
+        "observed_quality_thresholds": [
+          {
+            "condition": "__overall__",
+            "threshold": 0.0,
+            "recall": 0.6837606837606838,
+            "false_alerts": 59,
+            "false_alert_rate": 0.17251461988304093,
+            "true_positives": 240,
+            "false_negatives": 111,
+            "false_positives": 59,
+            "true_negatives": 283,
+            "positive_windows": 351,
+            "negative_windows": 342
+          },
+          {
+            "condition": "mask15",
+            "threshold": 0.0,
+            "recall": 0.49572649572649574,
+            "false_alerts": 0,
+            "false_alert_rate": 0.0,
+            "true_positives": 58,
+            "false_negatives": 59,
+            "false_positives": 0,
+            "true_negatives": 114,
+            "positive_windows": 117,
+            "negative_windows": 114
+          },
+          {
+            "condition": "mask35",
+            "threshold": 0.0,
+            "recall": 1.0,
+            "false_alerts": 57,
+            "false_alert_rate": 0.5,
+            "true_positives": 117,
+            "false_negatives": 0,
+            "false_positives": 57,
+            "true_negatives": 57,
+            "positive_windows": 117,
+            "negative_windows": 114
+          },
+          {
+            "condition": "unmasked",
+            "threshold": 0.0,
+            "recall": 0.5555555555555556,
+            "false_alerts": 2,
+            "false_alert_rate": 0.017543859649122806,
+            "true_positives": 65,
+            "false_negatives": 52,
+            "false_positives": 2,
+            "true_negatives": 112,
+            "positive_windows": 117,
+            "negative_windows": 114
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "clean_calibration_threshold": {
+      "__overall__": {
+        "recall": 0.9143199880041986,
+        "false_alert_rate": 0.10699701653479074
+      },
+      "mask15": {
+        "recall": 0.8932073774179038,
+        "false_alert_rate": 0.061154102393276275
+      },
+      "mask35": {
+        "recall": 0.9807467386414755,
+        "false_alert_rate": 0.2217914364602093
+      },
+      "unmasked": {
+        "recall": 0.8690058479532163,
+        "false_alert_rate": 0.038045510750886656
+      }
+    },
+    "stress_common_threshold": {
+      "__overall__": {
+        "recall": 0.8739032410085041,
+        "false_alert_rate": 0.044713079730760254
+      },
+      "mask15": {
+        "recall": 0.8465137201979307,
+        "false_alert_rate": 0.017721518987341773
+      },
+      "mask35": {
+        "recall": 0.9339631129104813,
+        "false_alert_rate": 0.09996202400240732
+      },
+      "unmasked": {
+        "recall": 0.8412328899171004,
+        "false_alert_rate": 0.016455696202531643
+      }
+    },
+    "observed_quality_thresholds": {
+      "__overall__": {
+        "recall": 0.8993252361673415,
+        "false_alert_rate": 0.10855526850040312
+      },
+      "mask15": {
+        "recall": 0.8465137201979307,
+        "false_alert_rate": 0.050940004494045385
+      },
+      "mask35": {
+        "recall": 0.9824561403508772,
+        "false_alert_rate": 0.2366802902562773
+      },
+      "unmasked": {
+        "recall": 0.8690058479532163,
+        "false_alert_rate": 0.038045510750886656
+      }
+    }
+  },
+  "limitations": [
+    "Masks replace already normalized values with zero, not a modeled sensor ray or actual missing return.",
+    "Quality routing measures observable zero fraction, not the prior z-based degradation estimator.",
+    "Facilities, subjects, source preprocessing and event identities remain unverified.",
+    "No claim of physical occlusion robustness or event false-alert reduction."
+  ]
+}

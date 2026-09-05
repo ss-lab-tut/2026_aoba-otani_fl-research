@@ -1,0 +1,74 @@
+{
+  "status": "label_definition_disagreement_unresolved",
+  "global_index": 1066,
+  "original_file": "X_val_real.npy",
+  "original_index": 111,
+  "chronological_position": 821,
+  "neighbors": [
+    {
+      "position": 817,
+      "global_index": 738,
+      "binary_label": 0,
+      "subclass_label": 0
+    },
+    {
+      "position": 818,
+      "global_index": 1042,
+      "binary_label": 0,
+      "subclass_label": 0
+    },
+    {
+      "position": 819,
+      "global_index": 775,
+      "binary_label": 0,
+      "subclass_label": 0
+    },
+    {
+      "position": 820,
+      "global_index": 56,
+      "binary_label": 0,
+      "subclass_label": 0
+    },
+    {
+      "position": 821,
+      "global_index": 1066,
+      "binary_label": 1,
+      "subclass_label": 0
+    },
+    {
+      "position": 822,
+      "global_index": 903,
+      "binary_label": 1,
+      "subclass_label": 3
+    },
+    {
+      "position": 823,
+      "global_index": 1043,
+      "binary_label": 1,
+      "subclass_label": 3
+    },
+    {
+      "position": 824,
+      "global_index": 50,
+      "binary_label": 1,
+      "subclass_label": 3
+    },
+    {
+      "position": 825,
+      "global_index": 1124,
+      "binary_label": 1,
+      "subclass_label": 3
+    }
+  ],
+  "known_metadata": {
+    "fall_ratio_threshold": 0.3,
+    "subtype_id_map": {
+      "sit": 0,
+      "walk_stop": 1,
+      "walk_sit": 2,
+      "fall": 3
+    }
+  },
+  "interpretation": "Different binary window-ratio and subclass aggregation rules could explain a boundary disagreement; source preprocessing is unavailable, so neither label is corrected.",
+  "action": "Quarantine only the disagreeing sample in exploratory evaluation; require source label definitions for official evaluation."
+}

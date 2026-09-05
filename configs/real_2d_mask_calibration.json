@@ -1,0 +1,20 @@
+{
+  "status": "prospective_artificial_mask_stress_comparison_not_physical_occlusion",
+  "baseline": "results/real_fall_baseline.json",
+  "previous_comparison": "results/real_2d_input_stress.json",
+  "mask_fractions": [0.15, 0.35],
+  "calibration_start_fractions": [0.0, 0.25, 0.5, 0.75],
+  "test_start_fractions": [0.17, 0.73],
+  "calibration_fpr_limit_per_mask_position": 0.05,
+  "model_retraining": false,
+  "acceptance": {
+    "quality_mean_fpr_max": 0.05,
+    "each_test_scenario_mean_fpr_max": 0.1,
+    "quality_recall_at_least_common": true
+  },
+  "limitations": [
+    "Only new artificial mask positions, not new subjects or recordings",
+    "Test temporal blocks were used in earlier diagnostics; all results remain exploratory",
+    "No real sensor-missing-value convention is known"
+  ]
+}
