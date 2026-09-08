@@ -4,8 +4,8 @@
 
 ## 現在の研究課題
 
-先生のご指示に対する実施内容・実験条件・結果・未解決点は
-[先生への進捗報告（2026-09-08）](docs/TEACHER_REQUEST_STATUS.md)にまとめています。
+比較実装・5 seeds実行・結果整理の完了状況、実験条件と残る課題は
+[B1/B2/B3/P1比較の完了報告（2026-09-08）](docs/TEACHER_REQUEST_STATUS.md)にまとめています。
 
 修正版B1/B2/B3/P1の5 seeds比較が完了しました。
 [主表・施設/geometry別CSV・9月9日レビュー資料](results/simulated_fall_p1_v2/REVIEW.md)を参照してください。
