@@ -60,6 +60,20 @@ testbedはbase commit `bd5d1380bb6a654a9ceff124537f60f964bae94e`とローカル�
 隣接リポジトリは別管理であり、本リポジトリのpushだけでその作業ツリーが更新されるわけではない。
 学習の厳密な再現には、testbedのruntime hashも一致させる必要がある。
 
+2026-09-08にこの不足を確認した。既にGitに保存している
+`results/condition_threshold_validation.testbed.patch`を上記base commitへ適用すると、
+実験時の全23 runtimeファイルのhashが一致することを、一時ディレクトリで復元して検証した。
+別リポジトリの未コミット作業を新たに取得する必要はない。
+清潔なtestbed checkoutを上記commitに固定し、このパッチを`git apply`してから学習を実行する。
+既存の変更済み作業ツリーにパッチを重ねて適用しない。
+
+```powershell
+.\fl_env\Scripts\python.exe experiments/verify_testbed_reconstruction.py
+```
+
+検証結果は`results/simulated_fall_p1_v2/runtime_reconstruction.json`。
+この検証はソース復元の一致であり、別環境での全学習の再実行まで保証したものではない。
+
 ## 論文と追加実験を決めるための論点
 
 - 支持される観察：主解析のP1はB3より誤検知を減らした。

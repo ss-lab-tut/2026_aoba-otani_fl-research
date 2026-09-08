@@ -1,0 +1,33 @@
+{
+  "status": "verified_base_plus_saved_patch",
+  "base_commit": "bd5d1380bb6a654a9ceff124537f60f964bae94e",
+  "patch": "results/condition_threshold_validation.testbed.patch",
+  "patch_sha256": "c1e97a5c46bdecaa5dce1d6ea74b03887dc9d92aa1bc443121701f1846022e77",
+  "verified_runtime_files": 23,
+  "runtime_sha256": {
+    "heterosense/__init__.py": "71a9830eec333a29ee615aaf8c53d20597f4f7b060071bd4a45076942f83abec",
+    "heterosense/_core/__init__.py": "c0346536b32e99e0e1eaec5425640f6249ee419e3d135e583341a5337a71b632",
+    "heterosense/_core/_behavior_model.py": "b77981072836267865e12cb49d0991b25ce2fff47f14120b3ea75e1eba3fabc3",
+    "heterosense/_core/_behavior_model_ext.py": "c6c1c72848bca6729d3cb6e38c95ed0b3eb9a73f8d61f58102179bfb093de58d",
+    "heterosense/_core/_config_manager.py": "31ac5af1a5d9f9d393d261a9a1ce967d2e4f57983ceef931cb6a0d56709626ee",
+    "heterosense/_core/_config_schema.py": "3715a744f635cfb68170b1dc0142897a594840ba78ebf172e815d1d052eda45c",
+    "heterosense/_core/_environment_model.py": "0921aa9e9a12182863183b5b3adebfad312beb9df1e3b73f56bf8430563da56e",
+    "heterosense/_core/_io_utils.py": "307944379a18e243ff8b56564730f8de1eaa27a6eccd74878512eeeb712a708d",
+    "heterosense/_core/_observation_model.py": "fed66f71a42a6446fe54895809368d2cf4a961527403fab77e021ec7746b5246",
+    "heterosense/_core/_observation_model_ext.py": "5a351a671aba066782ad03c3873c19762eeb08265a0a6ecd73a3bc84bc96e937",
+    "heterosense/_scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "heterosense/_scripts/condition_identifiability.py": "eecfcef61fba7485399821855378f490d0a24595bb26fdf3cb91226840a1563e",
+    "heterosense/_scripts/quick_demo.py": "e26928e85a0ccc035e24c600cd79577bccbb0b447153303613c3abbe8f7453f0",
+    "heterosense/_scripts/run_benchmark.py": "beedafd275c44750d4759565ef6a46b030ea22bce6966e849a16647e7c248a5d",
+    "heterosense/_scripts/structured_occlusion_pilot.py": "1584c98460837a9c7badb1ecee95ee86ccb1d3fcc61f5d2d615b22001b51b128",
+    "heterosense/baseline_demo.py": "082577c326ebfa542223455aece55cfa49dbab36c0e0c541d80c0a6b02076ee5",
+    "heterosense/client_factory.py": "4267b37316ac5593864e0325e1b41fb8039d091aabf7fbea6b55849997d67f2e",
+    "heterosense/condition_estimator.py": "09fcd3bc0438d9a670fde41aa04b7b7df6589460400782f67cd07522edf57141",
+    "heterosense/dataset_builder.py": "d788c721a2091e03314c2343a651d637fef2ef23d540e26254f102b03d1cd1a9",
+    "heterosense/observation_statistics.py": "d14a37ac2d4e439e0d42a7a06374f667af626e0f766413339696cda4dd8f102a",
+    "heterosense/temporal_window_sampler.py": "eca7ae46d232a92726f17e45af8e9d3ce8b7a582be88f906085c39d58c63d8fd",
+    "heterosense/validation.py": "758951ce0014919044862f8576f4c5de0ba03b50e862cb551972a2dca344085e",
+    "pyproject.toml": "329a6512492bb4d8234349e7d93abeaf6ac697f4a89cbdba5f069d19b1071c74"
+  },
+  "scope": "Source reconstruction only; full training was not rerun"
+}

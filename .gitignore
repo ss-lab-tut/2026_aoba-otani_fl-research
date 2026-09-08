@@ -259,3 +259,4 @@ __pycache__/
 !/configs/simulated_fall_p1_v2_reproduce.json
 !/artifacts/frozen_condition_v2/protocol.json
 !/results/fall_operating_points/manifest.json
+!/results/simulated_fall_p1_v2/runtime_reconstruction.json
