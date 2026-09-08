@@ -1,0 +1,13 @@
+{
+  "seeds": [0, 1, 2, 3, 4],
+  "calibration_fpr_budget": 0.05,
+  "condition_cutoff": 0.0,
+  "require_unseen_geometry": true,
+  "estimator_provenance": {
+    "0": {"artifact_sha256": "", "training_geometries": [], "training_recording_ids": []},
+    "1": {"artifact_sha256": "", "training_geometries": [], "training_recording_ids": []},
+    "2": {"artifact_sha256": "", "training_geometries": [], "training_recording_ids": []},
+    "3": {"artifact_sha256": "", "training_geometries": [], "training_recording_ids": []},
+    "4": {"artifact_sha256": "", "training_geometries": [], "training_recording_ids": []}
+  }
+}

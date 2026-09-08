@@ -1,0 +1,94 @@
+{
+  "status": "verification_of_exploratory_diagnostics_only",
+  "source_hash_normalization": "CRLF to LF",
+  "source_sha256": {
+    "model.py": "2455c4fde42cf73c0d8ec2a1cb9ac10d8617965a7fbbf2f9b33b9329ea0d5634",
+    "data_loader.py": "cd11ff38b52844f980be00fc30d2dfc54fbf761e04ff31b974db72fe107ad192",
+    "src/temporal_integrity.py": "4b682a4100c26c5184cdd122831a8e7dd4c15ac6d9048add302da20faae9aa52",
+    "src/evaluation.py": "1032a2c79df528168cd5115912b35cf628417c5dbbb6700635d49fe63426999e",
+    "src/input_quality.py": "2435d3e70f8b29604d47f20630467c2fa41d3335ff28c281599354ab7f0f63f7",
+    "src/data_partition.py": "202f0dcb5c02c067b66eccf2142acf94d10a454beb90a9a936136cf8bf87e294",
+    "experiments/run_real_fall_baseline.py": "ba6c5723d3b455947597ff052fb650222ff3ef0da7a8539e2027324cb84c07b5",
+    "experiments/audit_temporal_overlap.py": "0b63955e0ccb360af01c18c891b3cc0b496057d94e393a1b105ac14e77c14233",
+    "experiments/evaluate_2d_input_stress.py": "915678ebecbf9370e7250391c882c364d22aa3549b0bc5fc7b84bd1b6692d0b5",
+    "experiments/compare_mask_calibration.py": "fa6680e6bbff4cc5ec887c5087379ab8f5f93d6278cd272df066d5a518ab21bc",
+    "experiments/compare_cnn_augmentation.py": "c2f716f8ea7f8dd8bb7f71d13157898d3cea2e4c5e14466d74630de799789ec3",
+    "experiments/verify_real_fall_results.py": "367ff4806a7eac9e22466a8f30bec023dff531d136e9cc237391e0cf9f32541d"
+  },
+  "input_files_unchanged": true,
+  "cross_split_frame_overlap": false,
+  "models_checked": [
+    {
+      "report": "real_fall_baseline.json",
+      "seed": 0,
+      "checkpoint_file": "local_real_fall_seed0.pt",
+      "checkpoint_sha256": "ad43eedb9696963dfe4012f6ac760490efa5b662941eaac8efc9edec1fac7504"
+    },
+    {
+      "report": "real_fall_baseline.json",
+      "seed": 1,
+      "checkpoint_file": "local_real_fall_seed1.pt",
+      "checkpoint_sha256": "58063661994817bb47d1183251f4c8f07c3abc6ca0646c51f8dfb53f8defe9dc"
+    },
+    {
+      "report": "real_fall_baseline.json",
+      "seed": 2,
+      "checkpoint_file": "local_real_fall_seed2.pt",
+      "checkpoint_sha256": "fa92afe7fcf38a5982daceef68721f852595bcc29efb10d4a55584e96973069f"
+    },
+    {
+      "report": "real_fall_baseline.json",
+      "seed": 3,
+      "checkpoint_file": "local_real_fall_seed3.pt",
+      "checkpoint_sha256": "2b80b378ca2b0b16e7d18abc79f815c1c8b47fe43980cc7f3f0afadfc4fe82fa"
+    },
+    {
+      "report": "real_fall_baseline.json",
+      "seed": 4,
+      "checkpoint_file": "local_real_fall_seed4.pt",
+      "checkpoint_sha256": "45c06a0ad38a81d022f1b8e55cb19594ace709a23322eac6929bf35a406ea7de"
+    },
+    {
+      "report": "real_fall_augmented.json",
+      "seed": 0,
+      "checkpoint_file": "local_real_fall_augmented_seed0.pt",
+      "checkpoint_sha256": "6d98de6b591e22b83dfdcdcede450dcaf41ee6b65961368f35641bf46de195f0"
+    },
+    {
+      "report": "real_fall_augmented.json",
+      "seed": 1,
+      "checkpoint_file": "local_real_fall_augmented_seed1.pt",
+      "checkpoint_sha256": "fe44d7001869218b6b71efc347081f15fa8fefc68eff7d6b21511bd94baf25a7"
+    },
+    {
+      "report": "real_fall_augmented.json",
+      "seed": 2,
+      "checkpoint_file": "local_real_fall_augmented_seed2.pt",
+      "checkpoint_sha256": "828a6b8f5faa84409c1f543e42e44fc304c9a4ffed6e6342e8e988b5cc571fdc"
+    },
+    {
+      "report": "real_fall_augmented.json",
+      "seed": 3,
+      "checkpoint_file": "local_real_fall_augmented_seed3.pt",
+      "checkpoint_sha256": "f6d346ef925a7c46fab16107c08f22b55cefd9107741fb92309f98b47c4f47b0"
+    },
+    {
+      "report": "real_fall_augmented.json",
+      "seed": 4,
+      "checkpoint_file": "local_real_fall_augmented_seed4.pt",
+      "checkpoint_sha256": "6a35551edc18bd87deb8412ebfbb8498f8b7eb08e710355f041c00db65f25aca"
+    }
+  ],
+  "inference_replay_commands_completed_with_exact_score_and_metric_match": [
+    "./fl_env/Scripts/python.exe experiments/verify_real_fall_results.py results/real_fall_baseline.json",
+    "./fl_env/Scripts/python.exe experiments/verify_real_fall_results.py results/real_fall_augmented.json"
+  ],
+  "tests_passed": 30,
+  "official_evaluation_ready": false,
+  "unresolved": [
+    "original preprocessing and channel semantics",
+    "subject/site/recording mapping",
+    "label aggregation definition",
+    "event boundaries and timestamps"
+  ]
+}

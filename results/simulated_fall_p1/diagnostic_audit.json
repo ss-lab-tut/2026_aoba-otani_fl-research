@@ -1,0 +1,12 @@
+{
+  "status": "read_only_diagnosis_no_tuning",
+  "source_sha256": "602f9dd90e8c542396eeae554436339ba6378234dddbc3afed66f11df0217e30",
+  "experiment_protocol_sha256": "b5ccca0ea30bf9953fc027f840459ffbfd4e36285dc072a911105b47b043eab5",
+  "checkpoint_count": 10,
+  "score_reproduction_samples_per_checkpoint": 16,
+  "threshold": 0.5,
+  "limitations": [
+    "Training scores measure resubstitution, not generalization.",
+    "Test inspection is diagnostic; no model or threshold selected from these results."
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "calibration_fpr_budgets": [0.01, 0.025, 0.05, 0.10, 0.15, 0.20],
+  "main_budget": 0.05,
+  "purpose": "Descriptive operating-point sensitivity on frozen scores; not test-based operating-point selection",
+  "restrictions": ["All thresholds fitted on calibration only", "Same calibration FPR budget does not imply identical realized test FPR", "Keep 0.05 as the original main analysis; do not select a winning budget"]
+}

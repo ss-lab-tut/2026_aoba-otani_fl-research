@@ -1,0 +1,49 @@
+{
+  "status": "exploratory_existing_B1_B2_like_diagnostic_only",
+  "input_sha256": {
+    "X_train.npy": "991455581dccf60cebb21386c7d6a2f7deb2e04d9aa519560e206652855225ca",
+    "X_val_real.npy": "9fbdf9ac2265c444e2e1755c0a23964fa177e03e4dda6da9360dc82ed9a1e4e6",
+    "y_train_sub.npy": "c49d215af09ddfe4d5d2944e1537ff589cab5fec41964cfe1fb3dc2793f96219",
+    "y_val_sub.npy": "89fd1075cbeda2b4f30f1ae582e614e63dfbf9d5449ce9a79973c4b48ea8d562",
+    "y_train_bin.npy": "91f413664a7753caefd38e9e2e5bc3fa4532fec7a21c30755bd5737e60443ca2",
+    "y_val_bin.npy": "b6287c074656c0e9bbbec91c5bf8823567ae7d940108c68f34b55ecdc152783e",
+    "meta.json": "7a0b7276bf938864ce1ded518bc81a91041e4e4765022e95991c82cbe17ce5d4",
+    "scaler.json": "f6bc440e0994b49b81cf8e05061540c412821368903d54284a4591976c79802a",
+    "local_real_fall_seed0.npz": "7dacc90305e7a9b40d30885279e88e590f95154c57fe105e00da26a334a36343",
+    "local_real_fall_seed1.npz": "d4a3bda030bc27cfea7dd664355cf679cd193049790e14aa46eaf6705b69014c",
+    "local_real_fall_seed2.npz": "57a3e1a1f49f6e2a9b82acdd30a71872833bb3d407749cdf9268f04bc0309d79",
+    "local_real_fall_seed3.npz": "d106a6311f50c98bc474fdd9e08d5cfcf9a980ddc2b26fa84bd8b0adcac17efa",
+    "local_real_fall_seed4.npz": "fdef9ddb332ccce9e5f8fea87169c853dd049688a89265de26bae909162fa4bb",
+    "local_real_fall_augmented_seed0.npz": "3cdb7c893b72f89a808ff7c915f9870f3af361a2f11b296e9bd514766ed029a7",
+    "local_real_fall_augmented_seed1.npz": "6058c0a61c5dcd0ab78878edee5a86b4f0adeaa24294a985a323ff1bb033eca9",
+    "local_real_fall_augmented_seed2.npz": "a3baa2827694ad70ae0455e0cd60b3896056365d3cfbb47349dc742eb88f66ac",
+    "local_real_fall_augmented_seed3.npz": "0fa1c62760804e1af9a1c54e86ec33377b3ed15421db998b3b6153410f5b87f2",
+    "local_real_fall_augmented_seed4.npz": "0a9e53ca5b3c8d09faec6cd77bdb1ed58c29226bb728cbb48c92697209d4baf5"
+  },
+  "data_provenance": "unverified_arrays; user confirmed no measured data exists on 2026-09-06",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "calibration_fpr_budget": 0.05,
+  "unit": "window",
+  "unavailable": [
+    "B3: facility identity absent",
+    "P1: compatible estimator outputs absent",
+    "unseen geometry: geometry identity absent"
+  ],
+  "limitations": [
+    "No subject/recording/site identities; temporal separation is not independence of subjects or events.",
+    "Supplied inputs are already scaled and clipped; training-only fitting of the original scaler cannot be verified or undone.",
+    "Binary/subclass disagreement quarantined; true label remains unresolved.",
+    "One contiguous class-3 region is not evidence of many independent fall events.",
+    "Window-level false-positive rate only, not event alerts/hour.",
+    "Seeds also rotate temporal folds: standard deviation mixes initialization and split variation.",
+    "Previously examined test windows; not a new confirmatory test.",
+    "B2 uses existing angular-mask augmentation, not the unrecovered historical B2 setup.",
+    "Scores are cached; checkpoint inference was verified by the preceding verification experiment."
+  ]
+}

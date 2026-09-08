@@ -1,0 +1,74 @@
+{
+  "status": "read_only_input_label_data_audit_no_training_or_selection",
+  "summary": {
+    "train": {
+      "recordings": 4,
+      "unique_windows": 160,
+      "positive_windows": 79,
+      "abnormal_episodes": 32,
+      "episode_subtypes": {
+        "NEAR_FALL": 31,
+        "RECOVERED_FALL": 1
+      },
+      "median_episode_frames": 1.0,
+      "median_positive_abnormal_frames": 2.0,
+      "positive_endpoint_negative_fraction": 0.9746835443037974,
+      "positive_last5_negative_fraction": 0.8734177215189873,
+      "positive_without_strict_fall_fraction": 1.0,
+      "mean_occupied_bin_fraction": 0.0709156976744186,
+      "mean_always_empty_bin_fraction": 0.4290697674418605
+    },
+    "calibration": {
+      "recordings": 4,
+      "unique_windows": 160,
+      "positive_windows": 56,
+      "abnormal_episodes": 23,
+      "episode_subtypes": {
+        "NEAR_FALL": 23
+      },
+      "median_episode_frames": 1.0,
+      "median_positive_abnormal_frames": 2.0,
+      "positive_endpoint_negative_fraction": 0.9285714285714286,
+      "positive_last5_negative_fraction": 0.8571428571428571,
+      "positive_without_strict_fall_fraction": 1.0,
+      "mean_occupied_bin_fraction": 0.07735901162790698,
+      "mean_always_empty_bin_fraction": 0.3808139534883721
+    },
+    "test": {
+      "recordings": 4,
+      "unique_windows": 160,
+      "positive_windows": 64,
+      "abnormal_episodes": 19,
+      "episode_subtypes": {
+        "NEAR_FALL": 18,
+        "FALL": 1
+      },
+      "median_episode_frames": 1.0,
+      "median_positive_abnormal_frames": 1.0,
+      "positive_endpoint_negative_fraction": 0.9375,
+      "positive_last5_negative_fraction": 0.875,
+      "positive_without_strict_fall_fraction": 0.9375,
+      "mean_occupied_bin_fraction": 0.07192805232558139,
+      "mean_always_empty_bin_fraction": 0.4168604651162791
+    }
+  },
+  "original_artifacts_sha256": {
+    "observations.npz": "d3580f961c0d9d79d759e632a717f79fc2ff140f729a6336941f510897bad2ff",
+    "scores.csv": "792493ded18b33b7b2bb76e42278ede73de63099baca171c9becf94a0fe5442d",
+    "condition_model.npz": "753259bcfb07a009024548615382cfb71b313b0b3777f0b97cd82207c049952e",
+    "training.json": "7a167ee82be4d63bd16b8200b2eacfa48ca2f7a00824568cfc8a8e594672a0c1"
+  },
+  "script_sha256": "5b357f47f7e5a3d89e989a43f670e1a7d6f09961f6067b2d173bcf3b8772039e",
+  "checks": {
+    "clear_rasters_exactly_reproduced": true,
+    "labels_exactly_reproduced": true,
+    "geometry_labels_identical": true,
+    "finite_normalized_inputs": true,
+    "original_artifacts_unchanged": true
+  },
+  "limitations": [
+    "Subtype is simulator post-hoc ground truth, used for audit only.",
+    "Counts deduplicate geometry variants but not individual persons; people are synthetic.",
+    "Old test is inspected only diagnostically, not used to select a revised model."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "condition_provenance": {
+    "artifact_sha256": "753259bcfb07a009024548615382cfb71b313b0b3777f0b97cd82207c049952e",
+    "training_geometries": [
+      "vertical_near",
+      "vertical_mid",
+      "horizontal_near",
+      "horizontal_mid",
+      "central_furniture",
+      "train_furniture_h0.45_p0",
+      "train_furniture_h0.45_p1",
+      "train_furniture_h0.7_p0",
+      "train_furniture_h0.7_p1",
+      "train_furniture_h1.15_p0",
+      "train_furniture_h1.15_p1",
+      "train_furniture_h1.5_p0",
+      "train_furniture_h1.5_p1"
+    ],
+    "training_recording_ids": [
+      "condition_paired_site_0",
+      "condition_paired_site_1",
+      "condition_paired_site_2",
+      "condition_paired_site_3",
+      "condition_paired_site_4"
+    ],
+    "condition_config_sha256": "192b9afbf5045b982eafa6af92eac2b01ca997e79e14d341d7d4416e4727b61e",
+    "frozen_cutoff": 0.30309518477579933,
+    "robust_cache_sha256": "182ff5d3752292b31353125ce30d8f000c91bea26c5187636fff852d7316e913",
+    "augmented_cache_sha256": "552e35b1814968fad8e41d7e8a3142d6adb85086af3f3e1c944c72767c3b1d65"
+  },
+  "source": "Frozen existing estimator; no refitting"
+}

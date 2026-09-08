@@ -1,0 +1,22 @@
+{
+  "status": "simulation_only_exploratory_fall_window_comparison",
+  "seeds": [0, 1, 2, 3, 4],
+  "trajectory_seeds": {"train": [301, 302], "calibration": [401, 402], "test": [501, 502]},
+  "n_steps": 800,
+  "baseline_steps": 100,
+  "window_frames": 64,
+  "stride_frames": 16,
+  "label": "any_ABNORMAL_in_window",
+  "facilities": [{"name": "standard", "noise": 1.0}, {"name": "harsh", "noise": 3.0}],
+  "known_geometries": ["clear", "vertical_mid", "central_furniture"],
+  "unseen_geometries": ["vertical_new", "horizontal_new", "low_new", "wide_new", "two_new"],
+  "condition_config": "configs/condition_robustness_holdout_v2.json",
+  "epochs": 6,
+  "batch_size": 16,
+  "learning_rate": 0.001,
+  "calibration_fpr_budget": 0.05,
+  "raster": {"beams": 430, "range_scale_metres": 8.0, "height_scale_metres": 2.5},
+  "training": "B1 clear; B2 replaces each training window with one uniformly sampled known geometry; same windows, labels, updates and initialization",
+  "condition_routing": "frozen five-frame condition score at window endpoint minus frozen cutoff",
+  "limitations": ["Synthetic three-coordinate body point clouds with 2.5-D occlusion, not measured 2D LiDAR", "Centralized existing CNN diagnostic; not a federated-learning comparison", "ABNORMAL includes simulated impact and post-impact states; no event-level sensitivity claim", "Five model seeds share fixed generated train/calibration/test trajectories"]
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "split": "train",
+    "facility": "standard",
+    "records": 4,
+    "selected": {
+      "fall": 48,
+      "near_fall": 24,
+      "adl": 72
+    },
+    "subtypes": {
+      "FALL": 33,
+      "RECOVERED_FALL": 15,
+      "NEAR_FALL": 24,
+      "WALKING": 22,
+      "TRANSITION": 21,
+      "STATIONARY": 29
+    },
+    "candidates": {
+      "fall": 108,
+      "near_fall": 69,
+      "adl": 337
+    }
+  },
+  {
+    "split": "train",
+    "facility": "harsh",
+    "records": 4,
+    "selected": {
+      "fall": 48,
+      "near_fall": 24,
+      "adl": 72
+    },
+    "subtypes": {
+      "FALL": 26,
+      "RECOVERED_FALL": 22,
+      "NEAR_FALL": 24,
+      "WALKING": 28,
+      "TRANSITION": 33,
+      "STATIONARY": 11
+    },
+    "candidates": {
+      "fall": 106,
+      "near_fall": 48,
+      "adl": 349
+    }
+  },
+  {
+    "split": "calibration",
+    "facility": "standard",
+    "records": 2,
+    "selected": {
+      "fall": 24,
+      "near_fall": 12,
+      "adl": 36
+    },
+    "subtypes": {
+      "FALL": 18,
+      "RECOVERED_FALL": 6,
+      "NEAR_FALL": 12,
+      "STATIONARY": 10,
+      "WALKING": 13,
+      "TRANSITION": 13
+    },
+    "candidates": {
+      "fall": 57,
+      "near_fall": 26,
+      "adl": 170
+    }
+  },
+  {
+    "split": "calibration",
+    "facility": "harsh",
+    "records": 2,
+    "selected": {
+      "fall": 24,
+      "near_fall": 12,
+      "adl": 36
+    },
+    "subtypes": {
+      "FALL": 13,
+      "RECOVERED_FALL": 11,
+      "NEAR_FALL": 12,
+      "TRANSITION": 18,
+      "STATIONARY": 8,
+      "WALKING": 10
+    },
+    "candidates": {
+      "fall": 38,
+      "near_fall": 18,
+      "adl": 171
+    }
+  },
+  {
+    "split": "test",
+    "facility": "standard",
+    "records": 2,
+    "selected": {
+      "fall": 24,
+      "near_fall": 12,
+      "adl": 36
+    },
+    "subtypes": {
+      "RECOVERED_FALL": 11,
+      "FALL": 13,
+      "NEAR_FALL": 12,
+      "WALKING": 8,
+      "STATIONARY": 12,
+      "TRANSITION": 16
+    },
+    "candidates": {
+      "fall": 56,
+      "near_fall": 35,
+      "adl": 173
+    }
+  },
+  {
+    "split": "test",
+    "facility": "harsh",
+    "records": 2,
+    "selected": {
+      "fall": 24,
+      "near_fall": 12,
+      "adl": 36
+    },
+    "subtypes": {
+      "RECOVERED_FALL": 11,
+      "FALL": 13,
+      "NEAR_FALL": 12,
+      "STATIONARY": 17,
+      "WALKING": 13,
+      "TRANSITION": 6
+    },
+    "candidates": {
+      "fall": 66,
+      "near_fall": 21,
+      "adl": 172
+    }
+  }
+]
