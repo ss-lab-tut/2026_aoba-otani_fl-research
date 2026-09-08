@@ -4,12 +4,15 @@
 
 ## 現在の研究課題
 
+先生のご指示に対する実施内容・実験条件・結果・未解決点は
+[先生への進捗報告（2026-09-08）](docs/TEACHER_REQUEST_STATUS.md)にまとめています。
+
 修正版B1/B2/B3/P1の5 seeds比較が完了しました。
 [主表・施設/geometry別CSV・9月9日レビュー資料](results/simulated_fall_p1_v2/REVIEW.md)を参照してください。
 P1はB3よりFPRを下げましたが、平均Recall/F1の改善は確認できていません。
 
 2026-09-06に実データが存在しないことを確認しました。投稿準備はシミュレーションの
-B1/B2/B3/P1比較を優先します。[比較プロトコル](docs/SIMULATED_FALL_P1.md)を参照してください。
+B1/B2/B3/P1比較を優先します。[修正版比較プロトコル](docs/FALL_COMPARISON_V2.md)を参照してください。
 既存ファイル名の`real`は実測データの証拠ではなく、既存配列の出自は未確認です。
 
 従来の配列監査・CNN基準実験・欠損入力比較は
@@ -36,7 +39,12 @@ B1/B2/B3/P1比較を優先します。[比較プロトコル](docs/SIMULATED_FAL
 - `server.py` / `client.py`: Flowerによる連合学習の最小構成
 - `configs/` / `experiments/`: 実験設定と実行用の枠組み
 
-現状の `experiments/run.py` と `client.evaluate()` には仮の評価処理が残っています。このリポジトリだけでは、計画中のB1〜B4、P1、P2の比較実験をまだ再現できません。
+従来の `experiments/run.py` と `client.evaluate()` には仮の評価処理が残っています。
+今回のB1/B2/B3/P1の制御比較は、別の実行入口
+`experiments/run_simulated_fall_p1_v2.py`で実装・実行済みです。
+これは集中学習による合成データ比較であり、FL比較の完成を意味しません。
+固定scoreの再集計と、testbedの保存済みパッチを用いた学習の再現手順は
+[再現方法](docs/OPERATING_POINT_REVIEW.md)を参照してください。B4/P2は今回の対象外です。
 
 ## データ
 
