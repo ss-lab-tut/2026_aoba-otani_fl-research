@@ -5,6 +5,7 @@
 
 ## 作成したもの
 
+- [論文用の3図とCNN診断](figures/README.md)：B3/P1対応比較、施設×unseen Recall、学習・評価AUROC。2026-09-09追加。
 - [英語原稿](DRAFT.md)：仮題、Abstract、Introduction、方法、実験設定、結果、Discussion、Conclusion。
 - [論文用の表](TABLES.md)：全体・seen・unseenの4方式比較とP1−B3の対応差。検証済みCSVから生成。
 - [比較の詳細報告](../docs/TEACHER_REQUEST_STATUS.md)：入力とラベルの修正経緯、設定、結果、再現方法。

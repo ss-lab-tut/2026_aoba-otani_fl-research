@@ -71,6 +71,8 @@ A descriptive sensitivity analysis recalibrates thresholds at budgets 0.01, 0.02
 
 ## 6. Discussion and limitations
 
+A post-hoc analysis of the frozen checkpoints compares their actual training windows with test subsets (see [the diagnostic figures](figures/README.md)). Mean training AUROC is 0.815 for B1 and 0.781 for B2, versus 0.671 and 0.610 on clear test inputs, 0.663 and 0.599 on known test geometries, and 0.638 and 0.582 on held-out geometries. The drop is therefore already present on known-condition test data; held-out geometry alone cannot account for the observed performance. Training and test mixtures differ, especially for geometry-augmented B2, and these descriptive gaps do not isolate optimization or overfitting as the cause. This analysis uses the same frozen models and does not change the main experiment.
+
 The central observation is that connecting the frozen condition estimator to threshold selection changes the detector's operating behavior but does not establish better recall or F1. A reduction in false positives should be presented together with the missed-detection metrics. The clear-input baseline also exceeds the augmented policies in mean recall, F1 and AUROC, so the current evidence does not support a general benefit from the chosen augmentation protocol.
 
 Absolute recall is low. The current comparison does not determine whether optimization, limited training diversity, the long input context or other aspects of the protocol are the principal cause. These are hypotheses requiring separate development-data experiments, not demonstrated explanations. Further experiments should retain the existing model scope and use fresh evaluation trajectories after fixing any changes on development data.
