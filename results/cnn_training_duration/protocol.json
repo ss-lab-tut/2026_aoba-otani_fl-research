@@ -1,0 +1,42 @@
+{
+  "status": "development_only",
+  "epochs": [
+    1,
+    3,
+    6,
+    12,
+    18
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "learning_rate": 0.001,
+  "batch_size": 16,
+  "primary_contrast": "epoch18_minus_epoch6",
+  "fit_records": [
+    "v2_harsh_10001",
+    "v2_harsh_10002",
+    "v2_harsh_10003",
+    "v2_standard_10001",
+    "v2_standard_10002",
+    "v2_standard_10003"
+  ],
+  "development_records": [
+    "v2_harsh_10004",
+    "v2_standard_10004"
+  ],
+  "observations_sha256": "4f73c7b84c3d80c7d75d084233405d005b2ad6650a3be0043ffb80d547bf45e7",
+  "windows_sha256": "b6cf6901cf16467822347d12df2a121176581793c134b14bc1666915e174a182",
+  "source_sha256": {
+    "experiments\\check_cnn_training_duration.py": "86d17e396da0f861903dbd22be446492751e12c268c6346505d05a0ce7c2c711",
+    "model.py": "d3e9f29ee01c86d7c74dfb2369b61839497652c0d4712969b23c4e81b829a4a2",
+    "experiments\\run_simulated_fall_p1_v2.py": "50c6a0c0fec3a4f1fb0b89b1237e16615a8f57755e0ee5930d14299eb6cf2fec",
+    "docs\\CNN_TRAINING_CHECK.md": "4659f655b8c1b8bfb57716019125494ec4794b2189ffa9fa96fe8d63ce6a6808"
+  },
+  "torch": "2.10.0+cpu",
+  "numpy": "2.4.3"
+}

@@ -5,6 +5,7 @@
 
 ## 作成したもの
 
+- [学習時間の追加検証](../docs/CNN_TRAINING_CHECK_RESULTS.md)：開発分割・5 seedsで6対18 epochsを比較。AUROC改善とcross entropy悪化の両方を記録。
 - [論文用の3図とCNN診断](figures/README.md)：B3/P1対応比較、施設×unseen Recall、学習・評価AUROC。2026-09-09追加。
 - [英語原稿](DRAFT.md)：仮題、Abstract、Introduction、方法、実験設定、結果、Discussion、Conclusion。
 - [論文用の表](TABLES.md)：全体・seen・unseenの4方式比較とP1−B3の対応差。検証済みCSVから生成。

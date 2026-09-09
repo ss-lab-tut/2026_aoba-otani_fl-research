@@ -71,6 +71,14 @@ A descriptive sensitivity analysis recalibrates thresholds at budgets 0.01, 0.02
 
 ## 6. Discussion and limitations
 
+### Development-only training-duration check
+
+Following the frozen-model diagnosis, we predefined a training-duration check for the B2 backbone using only the original training recordings. Generation seeds 10001–10003 supplied fitting data and seed 10004 supplied development data in each facility. The existing calibration and test partitions were not evaluated. Architecture, geometry replacement, Adam learning rate and batch size were held fixed. Five model seeds were trained for 18 epochs, with the primary contrast fixed in advance as epoch 18 minus epoch 6.
+
+Development AUROC increased from 0.5519 ± 0.0366 to 0.7901 ± 0.0597 (paired difference +0.2382 ± 0.0637), while development three-class cross entropy increased from 0.6578 ± 0.0328 to 1.0108 ± 0.3654. Both directions held in all five seeds. Fitting AUROC rose from 0.7088 to 0.9964. Longer training therefore improved ranking on this development split without improving cross entropy. This smaller fitting partition is not directly comparable with the main experiment. The check does not establish improved low-FPR detection, held-out-geometry performance or P1 superiority. Intermediate epochs are reported but no best epoch is selected. The six-epoch main comparison remains unchanged; any revised training condition requires a separately fixed comparison on new evaluation trajectories. See [the development results](../docs/CNN_TRAINING_CHECK_RESULTS.md).
+
+### Interpretation of the main comparison
+
 A post-hoc analysis of the frozen checkpoints compares their actual training windows with test subsets (see [the diagnostic figures](figures/README.md)). Mean training AUROC is 0.815 for B1 and 0.781 for B2, versus 0.671 and 0.610 on clear test inputs, 0.663 and 0.599 on known test geometries, and 0.638 and 0.582 on held-out geometries. The drop is therefore already present on known-condition test data; held-out geometry alone cannot account for the observed performance. Training and test mixtures differ, especially for geometry-augmented B2, and these descriptive gaps do not isolate optimization or overfitting as the cause. This analysis uses the same frozen models and does not change the main experiment.
 
 The central observation is that connecting the frozen condition estimator to threshold selection changes the detector's operating behavior but does not establish better recall or F1. A reduction in false positives should be presented together with the missed-detection metrics. The clear-input baseline also exceeds the augmented policies in mean recall, F1 and AUROC, so the current evidence does not support a general benefit from the chosen augmentation protocol.

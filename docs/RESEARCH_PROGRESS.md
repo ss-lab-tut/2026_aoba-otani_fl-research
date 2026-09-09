@@ -1,5 +1,13 @@
 # 研究進捗まとめ
 
+## 2026-09-09: B2の学習時間を開発分割・5 seedsで追加検証
+
+元のtrain記録だけをfit/developmentに分離し、事前固定した6対18 epochsを比較した。
+development AUROCは0.5519→0.7901、cross entropyは0.6578→1.0108。
+全5 seedsで順位付けは改善した一方、cross entropyは悪化。主解析やthresholdは変更していない。
+[追加検証結果](CNN_TRAINING_CHECK_RESULTS.md)に全指標・対応差・学習曲線と限界を保存し、英語草稿に反映した。
+10 checkpoints、50指標行、対応差を検証し、全47 tests成功。
+
 ## 2026-09-09: 固定CNNの学習・評価診断と論文用3図
 
 10 checkpointsの実学習窓を再推論し、B1/B2の学習・calibration・test AUROC等を集計した。
