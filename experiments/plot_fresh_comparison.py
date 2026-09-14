@@ -34,6 +34,8 @@ def main():
     axes[0,2].legend()
     fig.suptitle('Same fresh test trajectories; five seeds (mean ± sample SD)')
     for extension in ('png','svg'):fig.savefig(source/f'comparison.{extension}',dpi=180,bbox_inches='tight')
+    svg=source/'comparison.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8')
     plt.close(fig)
     print('Fresh comparison PNG/SVG saved')
 
