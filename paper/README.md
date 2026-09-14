@@ -5,6 +5,7 @@
 
 ## 作成したもの
 
+- [統合した論文用表](RESULTS_TABLES.md)と[LaTeX表](results_tables.tex)：初期結果・新規軌跡の6/18 epochs・施設別対応差を併記。監査済みCSVから生成。
 - [研究概要・レビュー用要点](REVIEW_BRIEF.md)：主題、3段階の結果、施設ごとの利点と不利益、投稿前の判断事項。
 - [最新P1/B3の全16条件](../results/fresh_trajectory_comparison/SUBGROUPS.md)：改善・悪化・seed別の方向を全条件で確認。
 - [Git内のscoreだけによる再集計検証](../results/fresh_trajectory_comparison/REPLAY_VERIFICATION.md)：6/18 epochsの指標・対応差を再現。
@@ -60,3 +61,14 @@
 `summary.csv`と`paired_P1_minus_B3_summary.csv`を監査記録のSHA-256と照合し、
 4方式・5 seedsの指標がそろっていることを確認して`TABLES.md`を生成する。
 原稿の数値はこの表と整合させる。今回の作業では学習・主解析を変更していない。
+
+統合表を再生成・照合する場合：
+
+```powershell
+.\fl_env\Scripts\python.exe experiments/build_manuscript_results.py
+.\fl_env\Scripts\python.exe experiments/build_manuscript_results.py --check
+```
+
+監査済みの元CSVを確認し、統合Markdown/LaTeX表と英語草稿の主要な数値記述9箇所を照合する。
+これは原稿全体の自動査読ではない。確認対象はB2の学習時間差、18 epochsのP1対B3の指標・対応差、施設別Recall/FPR差。
+LaTeXは表の移植用素材として作成しており、投稿先テンプレートでの組版は未確認。

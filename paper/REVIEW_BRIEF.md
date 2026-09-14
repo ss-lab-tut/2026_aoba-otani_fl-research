@@ -49,6 +49,7 @@ B1は平均Recall/F1が高く、B2はFPRが低いため、P1が全方式で最�
 
 ## 資料への入口
 
+- [初期・追加・施設別をまとめた論文用表](RESULTS_TABLES.md)
 - [英語草稿](DRAFT.md)
 - [最新比較と再現手順](../docs/FRESH_TRAJECTORY_RESULTS.md)
 - [全16施設×geometry条件](../results/fresh_trajectory_comparison/SUBGROUPS.md)

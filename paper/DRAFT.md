@@ -1,6 +1,6 @@
 # Facility-Specific and Condition-Adaptive Thresholds for Simulated Fall Detection: A Five-Seed Comparison
 
-Working manuscript, updated 2026-09-14. Venue-independent draft for internal review. An initial set of verified references is included; related-work coverage, author details and venue formatting still require review. Original numerical tables are generated in [TABLES.md](TABLES.md), with [fresh-trajectory results](../results/fresh_trajectory_comparison/REPORT.md) reported separately. This draft reports a controlled simulation study, not measured-sensor or federated-learning validation.
+Working manuscript, updated 2026-09-15. Venue-independent draft for internal review. An initial set of verified references is included; related-work coverage, author details and venue formatting still require review. Original numerical tables are generated in [TABLES.md](TABLES.md), with [fresh-trajectory results](../results/fresh_trajectory_comparison/REPORT.md) reported separately. This draft reports a controlled simulation study, not measured-sensor or federated-learning validation.
 
 ## Abstract
 
@@ -67,7 +67,7 @@ Checks cover ten checkpoint hashes, recording partitions, endpoint labels, array
 
 ## 5. Original six-epoch results
 
-Insert the generated all, seen and unseen tables from [TABLES.md](TABLES.md). Preserve all four policies in the main presentation; do not report only the favorable P1 comparisons.
+The original all, seen and unseen tables are available in [TABLES.md](TABLES.md). [RESULTS_TABLES.md](RESULTS_TABLES.md) brings the original unseen comparison, both fresh-data durations and facility-level paired differences together; [results_tables.tex](results_tables.tex) provides the corresponding LaTeX tables. All four policies are retained.
 
 Across all geometries, B1 has the highest mean recall, F1 and AUROC: 0.111, 0.183 and 0.647, respectively. B3 attains recall 0.072, precision 0.582, F1 0.128 and FPR 0.026. P1 attains recall 0.070, precision 0.620, F1 0.125 and FPR 0.022. The mean paired P1-minus-B3 differences are -0.0026 in recall, -0.0033 in F1 and -0.0042 in FPR. Thus, the adaptive threshold does not improve mean recall or F1 in the overall evaluation.
 
@@ -77,9 +77,19 @@ A descriptive sensitivity analysis recalibrates thresholds at budgets 0.01, 0.02
 
 ## 6. Additional analyses and limitations
 
+### Frozen-model diagnosis
+
+A post-hoc analysis of the frozen checkpoints compares their actual training windows with test subsets (see [the diagnostic figures](figures/README.md)). Mean training AUROC is 0.815 for B1 and 0.781 for B2, versus 0.671 and 0.610 on clear test inputs, 0.663 and 0.599 on known test geometries, and 0.638 and 0.582 on held-out geometries. The drop is therefore already present on known-condition test data; held-out geometry alone cannot account for the observed performance. Training and test mixtures differ, especially for geometry-augmented B2, and these descriptive gaps do not isolate optimization or overfitting as the cause. This analysis uses the same frozen models and does not change the main experiment.
+
+### Development-only training-duration check
+
+Following the frozen-model diagnosis, we predefined a training-duration check for the B2 backbone using only the original training recordings. Generation seeds 10001–10003 supplied fitting data and seed 10004 supplied development data in each facility. The existing calibration and test partitions were not evaluated. Architecture, geometry replacement, Adam learning rate and batch size were held fixed. Five model seeds were trained for 18 epochs, with the primary contrast fixed in advance as epoch 18 minus epoch 6.
+
+Development AUROC increased from 0.5519 ± 0.0366 to 0.7901 ± 0.0597 (paired difference +0.2382 ± 0.0637), while development three-class cross entropy increased from 0.6578 ± 0.0328 to 1.0108 ± 0.3654. Both directions held in all five seeds. Fitting AUROC rose from 0.7088 to 0.9964. Longer training therefore improved ranking on this development split without improving cross entropy. This smaller fitting partition is not directly comparable with the main experiment. The check does not establish improved low-FPR detection, held-out-geometry performance or P1 superiority. Intermediate epochs are reported but no best epoch is selected. The six-epoch main comparison remains unchanged. The fresh-trajectory comparison described next evaluates this fixed eighteen-epoch candidate with all four threshold policies. See [the development results](../docs/CNN_TRAINING_CHECK_RESULTS.md).
+
 ### Fresh-trajectory six/eighteen-epoch comparison
 
-After the development check described below, we fixed an eighteen-epoch condition and new calibration seeds 13001/13002 and test seeds 14001/14002. The original six-epoch checkpoints were evaluated on the same new data. Training recordings, windows, initializations, augmentation selections and first-six-epoch loss sequences were verified to match. All four policies were recalibrated separately within each training-duration condition using the same new calibration partition and budget 0.05. No epoch or threshold budget was selected using the new test results.
+After the development check described above, we fixed an eighteen-epoch condition and new calibration seeds 13001/13002 and test seeds 14001/14002. The original six-epoch checkpoints were evaluated on the same new data. Training recordings, windows, initializations, augmentation selections and first-six-epoch loss sequences were verified to match. All four policies were recalibrated separately within each training-duration condition using the same new calibration partition and budget 0.05. No epoch or threshold budget was selected using the new test results.
 
 On the new held-out geometries, B2 recall rises from 0.0558 at six epochs to 0.3008 at eighteen epochs, F1 from 0.1011 to 0.4493, and AUROC from 0.6690 to 0.8664. This is a training-duration result, not a P1 effect. Within eighteen epochs, P1 versus B3 yields recall 0.3233 versus 0.3008, F1 0.4633 versus 0.4321, and FPR 0.0304 versus 0.0375. The paired differences are approximately +0.0225 ± 0.0253 in recall, +0.0312 ± 0.0295 in F1, and -0.0071 ± 0.0043 in FPR. Four seeds improve recall/F1 and one worsens them; all five reduce FPR. B1 nevertheless has higher mean recall and F1 (0.3367 and 0.4818), while B2 has lower FPR (0.0129).
 
@@ -87,15 +97,7 @@ The new six-epoch evaluation does not show an adaptive-policy benefit over B3 in
 
 Facility-level results qualify the aggregate benefit. On held-out geometries, the harsh facility has P1-minus-B3 differences of +0.0567 in recall and +0.0042 in FPR, while the standard facility has -0.0117 in recall and -0.0183 in FPR. Thus, neither facility exhibits both higher recall and lower FPR in its own aggregate result. Among the ten held-out facility-by-geometry groups, mean recall increases in seven and decreases in three; mean F1 increases in eight and decreases in two. Mean FPR decreases in five, is unchanged in one, and increases in four. These dependent subgroups are descriptive, not independent statistical trials. All sixteen known/held-out facility-by-geometry groups are disclosed in [SUBGROUPS.md](../results/fresh_trajectory_comparison/SUBGROUPS.md); the favorable pooled result must not be interpreted as uniform facility-level improvement.
 
-### Development-only training-duration check
-
-Following the frozen-model diagnosis, we predefined a training-duration check for the B2 backbone using only the original training recordings. Generation seeds 10001–10003 supplied fitting data and seed 10004 supplied development data in each facility. The existing calibration and test partitions were not evaluated. Architecture, geometry replacement, Adam learning rate and batch size were held fixed. Five model seeds were trained for 18 epochs, with the primary contrast fixed in advance as epoch 18 minus epoch 6.
-
-Development AUROC increased from 0.5519 ± 0.0366 to 0.7901 ± 0.0597 (paired difference +0.2382 ± 0.0637), while development three-class cross entropy increased from 0.6578 ± 0.0328 to 1.0108 ± 0.3654. Both directions held in all five seeds. Fitting AUROC rose from 0.7088 to 0.9964. Longer training therefore improved ranking on this development split without improving cross entropy. This smaller fitting partition is not directly comparable with the main experiment. The check does not establish improved low-FPR detection, held-out-geometry performance or P1 superiority. Intermediate epochs are reported but no best epoch is selected. The six-epoch main comparison remains unchanged; any revised training condition requires a separately fixed comparison on new evaluation trajectories. See [the development results](../docs/CNN_TRAINING_CHECK_RESULTS.md).
-
 ### Interpretation of the main comparison
-
-A post-hoc analysis of the frozen checkpoints compares their actual training windows with test subsets (see [the diagnostic figures](figures/README.md)). Mean training AUROC is 0.815 for B1 and 0.781 for B2, versus 0.671 and 0.610 on clear test inputs, 0.663 and 0.599 on known test geometries, and 0.638 and 0.582 on held-out geometries. The drop is therefore already present on known-condition test data; held-out geometry alone cannot account for the observed performance. Training and test mixtures differ, especially for geometry-augmented B2, and these descriptive gaps do not isolate optimization or overfitting as the cause. This analysis uses the same frozen models and does not change the main experiment.
 
 In the original six-epoch analysis, connecting the frozen condition estimator to threshold selection changes the detector's operating behavior but does not improve mean recall or F1. In the additional eighteen-epoch analysis, P1 improves those means relative to B3, but still does not outperform every baseline. False positives and missed detections must therefore be presented together. The clear-input baseline retains higher mean recall and F1, so the evidence does not support a general superiority claim for the chosen augmentation and adaptation combination.
 
