@@ -46,6 +46,21 @@ P1の追加効果は、18 epochsで同じB2 scoreを使うB3との対応比較�
 
 ## 残る限界
 
+### 施設ごとの利点と不利益
+
+18 epochs・unseenのP1−B3の平均差は、harshではRecall +0.0567、F1 +0.0591、FPR +0.0042。
+standardではRecall −0.0117、F1 −0.0055、FPR −0.0183である。
+つまり集計上のRecall改善とFPR低下は、両施設それぞれで同時に生じたわけではない。
+施設内での利点と不利益を確認せず、「どの施設でも改善」と結論しない。
+
+unseenの施設×geometry全10条件では、平均Recallが7条件で増加・3条件で低下し、
+平均F1は8条件で増加・2条件で低下した。平均FPRは5条件で低下・1条件で同値・4条件で増加。
+seenの6条件ではRecall/F1は全条件で増加したが、FPRは5条件で増加した。
+[全16条件とseedごとの改善数](../results/fresh_trajectory_comparison/SUBGROUPS.md)を保存した。
+これらの条件数は独立試行ではなく、記述的な集計である。
+
+### 評価範囲
+
 - 同じcalibration FPR予算0.05でもtest FPRは一致しない。18 epochsでP1/B3のRecallが上がる際、6 epochsよりFPRも高い。
 - 18 epochsのP1はB2よりRecall/F1が高いがFPRも高く、B1よりRecall/F1が低い。単一の最良方式は主張できない。
 - 評価軌跡は新しいが、geometryは以前の研究で調べたものを含む。実測データは使用していない。
@@ -75,6 +90,15 @@ P1の追加効果は、18 epochsで同じB2 scoreを使うB3との対応比較�
 `experiments/evaluate_original_cnn_on_fresh_trajectories.py`を一度実行すると、対応する6 epochsの新規評価を生成する。
 既存の6 epochs新規評価出力がある場合は再実行しない。大きなcacheとcheckpointはローカル保持。
 元環境の再現と固定条件推定器については[再現手順](OPERATING_POINT_REVIEW.md)を参照。
+
+追加で、Gitに保存した圧縮scoreだけを一時ディレクトリに展開して、両学習時間の全指標・平均・標準偏差・P1−B3対応差を再生成し、一致を検証した。
+大きな観測cacheやcheckpointがなくても、次のコマンドで数値表を再検証できる。
+
+```powershell
+.\fl_env\Scripts\python.exe experiments/verify_fresh_score_replay.py
+```
+
+[再集計検証記録](../results/fresh_trajectory_comparison/REPLAY_VERIFICATION.md)を参照。
 
 論文では、初期比較、学習時間の開発検証、新規軌跡での追加比較を順に記載する。
 主張の候補は「評価した条件では、検出器の学習時間によって条件適応thresholdの効果が異なった」。

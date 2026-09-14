@@ -1,5 +1,12 @@
 # 研究進捗まとめ
 
+## 2026-09-14: B3/P1の全条件レビューとscoreからの再現確認
+
+最新18 epochsの全16施設×geometry条件を集計し、unseenでharshはRecall/FPRとも増加、standardは両方低下することを明記した。
+平均的な利点を全施設の一様な改善とは扱わず、英語原稿と[レビュー用概要](../paper/REVIEW_BRIEF.md)に反映。
+Git内の圧縮scoreだけから6/18 epochsの全指標・summary・対応差を再生成し、一致を確認した。
+今回の作業では追加学習・新モデル・条件推定器の改良は行っていない。
+
 ## 2026-09-14: 新規軌跡で6/18 epochsの全方式比較を完了
 
 [追加比較結果](FRESH_TRAJECTORY_RESULTS.md)を保存した。両学習時間で同じ新規calibration/testを使用し、各5 seedsを比較。

@@ -1,10 +1,13 @@
 # 国際会議投稿に向けた原稿準備
 
-2026-09-08。比較実装・5 seeds実行・結果整理に続き、既存結果を英語原稿へまとめた。
+2026-09-14更新。比較実装・5 seeds実行・結果整理に続き、既存結果を英語原稿へまとめた。
 投稿先・締切・ページ制限は未確認のため、現段階ではMarkdownによる内容レビュー用の草稿である。
 
 ## 作成したもの
 
+- [研究概要・レビュー用要点](REVIEW_BRIEF.md)：主題、3段階の結果、施設ごとの利点と不利益、投稿前の判断事項。
+- [最新P1/B3の全16条件](../results/fresh_trajectory_comparison/SUBGROUPS.md)：改善・悪化・seed別の方向を全条件で確認。
+- [Git内のscoreだけによる再集計検証](../results/fresh_trajectory_comparison/REPLAY_VERIFICATION.md)：6/18 epochsの指標・対応差を再現。
 - [新規軌跡での6/18 epochs比較](../docs/FRESH_TRAJECTORY_RESULTS.md)：同一データ・5 seedsで全方式を再比較。2026-09-14検証完了。
 - [関連研究メモ](LITERATURE_NOTES.md)と[参考文献](references.bib)：一次文献3件の位置付けを草稿へ追加。網羅性の確認は未完了。
 - [学習時間の追加検証](../docs/CNN_TRAINING_CHECK_RESULTS.md)：開発分割・5 seedsで6対18 epochsを比較。AUROC改善とcross entropy悪化の両方を記録。
@@ -14,7 +17,8 @@
 - [比較の詳細報告](../docs/TEACHER_REQUEST_STATUS.md)：入力とラベルの修正経緯、設定、結果、再現方法。
 
 原稿の中心は、固定条件推定器を既存CNNへ接続したときのthreshold選択の効果である。
-P1の誤検知率低下と、Recall/F1改善が未確認という結果を併記した。
+初期6 epochsではRecall/F1改善が未確認、追加18 epochsではP1がB3より平均Recall/F1を高めFPRを下げた、という両結果を併記した。
+施設別には利点と不利益が異なり、一様な改善や全方式への優越は示していない。
 新モデルや推定器の追加改善、testに合わせた条件変更は行っていない。
 
 ## 主張と根拠
@@ -24,10 +28,12 @@ P1の誤検知率低下と、Recall/F1改善が未確認という結果を併記
 | 4方式を同じ評価窓・5 model seedsで比較した | 設定、監査、620 group行の検証 | 固定軌跡でのモデル乱数の反復 |
 | B3/P1は同一fall scoreでthresholdだけを変える | 比較実装、保存score、checkpoint検証 | P1は推定2状態による切替 |
 | 主解析のP1はB3よりFPRが低い | 全体・unseenの平均、対応差CSV | calibration予算0.05、合成データ |
-| 平均Recall/F1改善は確認できなかった | 全体・unseenの4方式表 | 統計的有意差や一般的優越は主張しない |
+| 初期6 epochsでは平均Recall/F1改善は確認できなかった | 初期の全体・unseenの4方式表 | 初期結果を保持 |
+| 追加18 epochsではP1がB3より平均Recall/F1を高めFPRを下げた | 新規軌跡の対応差と全16条件表 | 施設ごとの一様な改善や全方式への優越ではない |
 | 未学習geometryで評価した | train/calibration/推定器学習geometryの検査 | 過去研究で調べたgeometryであり、研究全体の完全な初見ではない |
 
-性能改善、実測2D LiDAR、連続監視、FL、臨床的有効性を実証した原稿にはしない。
+性能改善の主張は18 epochs・新規合成軌跡のP1対B3の集計結果に限定する。
+実測2D LiDAR、連続監視、FL、臨床的有効性は実証していない。
 低Recallの原因はまだ切り分けられておらず、Discussionの候補要因は仮説として記載した。
 
 ## 投稿までの残作業
