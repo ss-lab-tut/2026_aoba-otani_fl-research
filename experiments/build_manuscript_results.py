@@ -79,7 +79,7 @@ def render():
                 r'\begin{tabular}{'+'l'*len(headers)+'}',r'\hline',' & '.join(headers)+r' \\',r'\hline']
         tex += [' & '.join(escape(v) for v in r)+r' \\' for r in rows]
         tex += [r'\hline',r'\end{tabular}',r'\end{table*}','']
-    return '\n'.join(md)+'\n','\n'.join(tex)+'\n'
+    return '\n'.join(md).rstrip()+'\n','\n'.join(tex).rstrip()+'\n'
 
 
 def check_prose(text):

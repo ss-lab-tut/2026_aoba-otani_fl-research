@@ -45,4 +45,3 @@ Positive Recall/F1 differences and negative FPR differences favor P1. Facility t
 | seen | standard | +0.0333 ± 0.0610 | +0.0311 ± 0.0501 | +0.0000 ± 0.0139 |
 | unseen | harsh | +0.0567 ± 0.0535 | +0.0591 ± 0.0655 | +0.0042 ± 0.0051 |
 | unseen | standard | -0.0117 ± 0.0274 | -0.0055 ± 0.0306 | -0.0183 ± 0.0076 |
-
