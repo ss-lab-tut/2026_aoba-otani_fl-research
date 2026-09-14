@@ -261,3 +261,10 @@ __pycache__/
 !/results/fall_operating_points/manifest.json
 !/results/simulated_fall_p1_v2/runtime_reconstruction.json
 !/results/cnn_training_duration/protocol.json
+!/configs/simulated_fall_p1_v2_fresh18.json
+!/results/fresh_trajectory_comparison/epochs6/audit.json
+!/results/fresh_trajectory_comparison/epochs6/verification.json
+!/results/fresh_trajectory_comparison/epochs6/event_preflight.json
+!/results/fresh_trajectory_comparison/epochs18/audit.json
+!/results/fresh_trajectory_comparison/epochs18/verification.json
+!/results/fresh_trajectory_comparison/epochs18/event_preflight.json

@@ -1,10 +1,10 @@
 # Facility-Specific and Condition-Adaptive Thresholds for Simulated Fall Detection: A Five-Seed Comparison
 
-Working manuscript, 2026-09-08. Venue-independent draft for internal review. Related work, verified references, author details and venue formatting remain to be completed. Numerical tables are generated in [TABLES.md](TABLES.md). This draft reports a controlled simulation study, not measured-sensor or federated-learning validation.
+Working manuscript, updated 2026-09-14. Venue-independent draft for internal review. An initial set of verified references is included; related-work coverage, author details and venue formatting still require review. Original numerical tables are generated in [TABLES.md](TABLES.md), with [fresh-trajectory results](../results/fresh_trajectory_comparison/REPORT.md) reported separately. This draft reports a controlled simulation study, not measured-sensor or federated-learning validation.
 
 ## Abstract
 
-We evaluate whether adapting a fall-detection threshold to an estimated observation condition improves performance relative to using a facility-specific threshold. A fixed condition estimator is connected to an existing convolutional neural network (CNN), and four policies are compared using the same data partitions and evaluation endpoints: a clear-input baseline, a geometry-augmented baseline, facility-specific thresholds, and condition-adaptive thresholds. The last three policies share the same fall scores. Thresholds are calibrated using only a held-out calibration partition with an empirical false-positive-rate budget of 0.05. Experiments use two simulated facilities, three known geometries, five held-out geometries and five model seeds. On held-out geometries, the condition-adaptive policy attains mean recall 0.054, F1 0.100 and false-positive rate 0.010, compared with 0.055, 0.101 and 0.015 for facility-specific thresholds. Thus, the adaptive policy reduces false positives in this setting without improving mean recall or F1. Low absolute recall, controlled event sampling and the absence of measured data limit the conclusions. The study provides a reproducible downstream comparison and identifies the limits of threshold adaptation with the evaluated fall scores.
+We evaluate condition-adaptive versus facility-specific thresholds for an existing fall-detection CNN. Four policies are compared over five model seeds in two simulated facilities with three known and five held-out geometries. The augmented common-threshold, facility-specific and condition-adaptive policies share identical fall scores; thresholds are fitted on calibration data at an empirical false-positive-rate budget of 0.05. The initial six-epoch experiment found no mean recall or F1 improvement from condition adaptation. A development-only training-duration check motivated a separately fixed comparison of six and eighteen epochs using new calibration and test trajectories. At eighteen epochs on held-out geometries, the adaptive policy achieves mean recall 0.323, F1 0.463 and false-positive rate 0.030, compared with 0.301, 0.432 and 0.037 for facility-specific thresholds. However, the clear-input baseline has higher recall and F1, while the common-threshold augmented baseline has fewer false positives. These results show that the observed benefit of threshold adaptation depends on the evaluated training condition and comparator. Controlled event sampling, shared trajectories across model seeds and the absence of measured data limit broader conclusions.
 
 ## 1. Introduction
 
@@ -12,11 +12,17 @@ The operating threshold is part of a fall-detection system: the same fall score 
 
 This study asks whether a fixed condition estimator yields a downstream benefit when connected to an existing fall classifier. We focus on a controlled comparison rather than introducing a new classifier or improving the condition estimator. The central comparison is between facility-specific and condition-adaptive thresholds. Two additional baselines distinguish the effects of geometry augmentation and threshold assignment.
 
-Our contributions within this experimental scope are: (1) a paired four-policy evaluation with disjoint recording partitions and held-out geometries; (2) an explicit endpoint-label protocol linking the CNN context and condition-estimation context to the same decision time; and (3) a five-seed analysis of detection metrics, false-positive rates and paired differences. The results show a reduction in false positives for the adaptive policy at the main calibration budget, but do not establish an improvement in mean recall or F1.
+Our contributions within this experimental scope are: (1) a paired four-policy evaluation with disjoint recording partitions and held-out geometries; (2) an explicit endpoint-label protocol linking the CNN context and condition-estimation context to the same decision time; and (3) a five-seed analysis separating training-duration effects from threshold-policy effects. The initial six-epoch results and the development-driven fresh-trajectory comparison are both retained. The additional eighteen-epoch comparison improves the adaptive policy's mean recall and F1 relative to facility-specific thresholds, without establishing superiority over all baselines.
 
-## 2. Related work — pending literature verification
+## 2. Related work — initial verified references
 
-This section is not yet written. The final manuscript needs verified primary sources for LiDAR-based fall detection, observation-condition or domain adaptation, and threshold selection under false-positive constraints. No novelty or state-of-the-art claim is made in this draft. The relationship to prior work must be assessed before submission.
+Bouazizi et al. study activity and fall detection using multiple 2D Lidars, an image-like fused representation and a ConvLSTM in simulated furnished environments. Their work provides relevant context for occlusion-aware sensing. Our experiment instead holds an existing CNN's scores fixed when comparing threshold policies; different data, tasks and metrics prevent a direct numerical performance comparison. [Bouazizi et al., 2024](https://www.mdpi.com/1424-8220/24/2/626).
+
+Guo et al. study confidence calibration of neural-network probabilities. This distinction matters here because a threshold-calibration partition sets decision boundaries but does not by itself establish well-calibrated probabilities. Our development results report AUROC and cross entropy separately; we do not apply probability-calibration methods in the present comparison. [Guo et al., 2017](https://proceedings.mlr.press/v70/guo17a.html).
+
+Neyman-Pearson classification treats type-I and type-II errors asymmetrically; Tong et al. analyze classifiers and sample requirements for this setting. Our threshold rule enforces an empirical calibration FPR budget only. It is not a high-probability population-FPR guarantee, particularly with dependent geometry replications. [Tong et al., 2020](https://jmlr.org/papers/v21/18-577.html).
+
+This initial context does not establish novelty or exhaustive related-work coverage. Observation-condition adaptation and closely matched fall-detection baselines still require a focused review before submission. Bibliographic entries are provided in [references.bib](references.bib).
 
 ## 3. Detection and threshold policies
 
@@ -59,7 +65,7 @@ We report recall, precision, F1, raw-score AUROC, false-positive rate (FPR) and 
 
 Checks cover ten checkpoint hashes, recording partitions, endpoint labels, array alignment and 620 grouped metric rows. Actual inference on 16 calibration windows per checkpoint reproduces cached scores. The frozen condition-estimator artifact is unchanged. A saved base commit and patch reproduce all 23 recorded simulator runtime source hashes. Full retraining in a separate environment has not been performed.
 
-## 5. Results
+## 5. Original six-epoch results
 
 Insert the generated all, seen and unseen tables from [TABLES.md](TABLES.md). Preserve all four policies in the main presentation; do not report only the favorable P1 comparisons.
 
@@ -69,7 +75,15 @@ On held-out geometries, B3 and P1 attain mean recalls of 0.055 and 0.054, mean F
 
 A descriptive sensitivity analysis recalibrates thresholds at budgets 0.01, 0.025, 0.05, 0.10, 0.15 and 0.20 using the same frozen scores. It does not establish consistent dominance across operating points. At budget 0.15, higher mean recall for P1 accompanies higher mean test FPR. Equal calibration budgets do not imply equal realized test FPR. The primary budget remains 0.05; the test results are not used to select a replacement operating point.
 
-## 6. Discussion and limitations
+## 6. Additional analyses and limitations
+
+### Fresh-trajectory six/eighteen-epoch comparison
+
+After the development check described below, we fixed an eighteen-epoch condition and new calibration seeds 13001/13002 and test seeds 14001/14002. The original six-epoch checkpoints were evaluated on the same new data. Training recordings, windows, initializations, augmentation selections and first-six-epoch loss sequences were verified to match. All four policies were recalibrated separately within each training-duration condition using the same new calibration partition and budget 0.05. No epoch or threshold budget was selected using the new test results.
+
+On the new held-out geometries, B2 recall rises from 0.0558 at six epochs to 0.3008 at eighteen epochs, F1 from 0.1011 to 0.4493, and AUROC from 0.6690 to 0.8664. This is a training-duration result, not a P1 effect. Within eighteen epochs, P1 versus B3 yields recall 0.3233 versus 0.3008, F1 0.4633 versus 0.4321, and FPR 0.0304 versus 0.0375. The paired differences are approximately +0.0225 ± 0.0253 in recall, +0.0312 ± 0.0295 in F1, and -0.0071 ± 0.0043 in FPR. Four seeds improve recall/F1 and one worsens them; all five reduce FPR. B1 nevertheless has higher mean recall and F1 (0.3367 and 0.4818), while B2 has lower FPR (0.0129).
+
+The new six-epoch evaluation does not show an adaptive-policy benefit over B3 in mean recall or F1. Thus, both the negative six-epoch findings and the favorable eighteen-epoch P1-versus-B3 comparison must be presented. Equal calibration budgets do not yield equal test FPR, and the P1/B3 recall gains across durations accompany higher FPR. See [all policies, paired differences and the figure](../results/fresh_trajectory_comparison/REPORT.md). These are additional simulated endpoint results, not a replacement for the original analysis or evidence of statistical significance.
 
 ### Development-only training-duration check
 
@@ -81,7 +95,7 @@ Development AUROC increased from 0.5519 ± 0.0366 to 0.7901 ± 0.0597 (paired di
 
 A post-hoc analysis of the frozen checkpoints compares their actual training windows with test subsets (see [the diagnostic figures](figures/README.md)). Mean training AUROC is 0.815 for B1 and 0.781 for B2, versus 0.671 and 0.610 on clear test inputs, 0.663 and 0.599 on known test geometries, and 0.638 and 0.582 on held-out geometries. The drop is therefore already present on known-condition test data; held-out geometry alone cannot account for the observed performance. Training and test mixtures differ, especially for geometry-augmented B2, and these descriptive gaps do not isolate optimization or overfitting as the cause. This analysis uses the same frozen models and does not change the main experiment.
 
-The central observation is that connecting the frozen condition estimator to threshold selection changes the detector's operating behavior but does not establish better recall or F1. A reduction in false positives should be presented together with the missed-detection metrics. The clear-input baseline also exceeds the augmented policies in mean recall, F1 and AUROC, so the current evidence does not support a general benefit from the chosen augmentation protocol.
+In the original six-epoch analysis, connecting the frozen condition estimator to threshold selection changes the detector's operating behavior but does not improve mean recall or F1. In the additional eighteen-epoch analysis, P1 improves those means relative to B3, but still does not outperform every baseline. False positives and missed detections must therefore be presented together. The clear-input baseline retains higher mean recall and F1, so the evidence does not support a general superiority claim for the chosen augmentation and adaptation combination.
 
 Absolute recall is low. The current comparison does not determine whether optimization, limited training diversity, the long input context or other aspects of the protocol are the principal cause. These are hypotheses requiring separate development-data experiments, not demonstrated explanations. Further experiments should retain the existing model scope and use fresh evaluation trajectories after fixing any changes on development data.
 
@@ -89,7 +103,7 @@ The controlled prevalence and selected decision times limit external validity. P
 
 ## 7. Conclusion
 
-A paired five-seed simulation comparison connects a fixed condition estimator to an existing fall classifier and compares common, facility-specific and condition-adaptive threshold policies. At the primary calibration budget, the adaptive policy reduces false-positive rates relative to facility-specific thresholds while leaving mean recall and F1 slightly lower. This result motivates reporting the full operating tradeoff and resolving the limitations of the existing detection pipeline before making broader effectiveness claims.
+A paired five-seed simulation study connects a fixed condition estimator to an existing fall classifier and compares common, facility-specific and condition-adaptive threshold policies. Initial six-epoch results do not show improved mean recall or F1 from adaptation. Following a development-only duration check, a separately fixed eighteen-epoch comparison on fresh trajectories shows higher mean recall/F1 and lower FPR for P1 than B3. The benefit does not extend to superiority over every baseline. Preserving all stages of the evaluation exposes the dependence of the observed result on the training condition and supports a limited, comparator-specific conclusion.
 
 ## Reproducibility materials
 

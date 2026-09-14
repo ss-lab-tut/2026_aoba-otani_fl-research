@@ -1,0 +1,340 @@
+{
+  "status": "verified_simulation_only",
+  "local_artifacts": "C:\\Users\\hepog\\OneDrive\\\u30c7\u30b9\u30af\u30c8\u30c3\u30d7\\2026_aoba-otani_fl-research\\results\\local_simulated_fall_p1_v2_fresh6",
+  "protocol": {
+    "config": {
+      "status": "original_six_epoch_models_on_fresh_trajectories",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "trajectory_seeds": {
+        "train": [
+          10001,
+          10002,
+          10003,
+          10004
+        ],
+        "calibration": [
+          13001,
+          13002
+        ],
+        "test": [
+          14001,
+          14002
+        ]
+      },
+      "n_steps": 6000,
+      "delta_t_seconds": 1.0,
+      "abnormal_persistence": 0.8,
+      "window_frames": 64,
+      "baseline_steps": 100,
+      "target_label": "FALL_or_RECOVERED_FALL_at_third_episode_frame",
+      "negative_label": "NEAR_FALL_after_episode_plus_ADL_without_ABNORMAL_in_last_5_frames",
+      "quotas_per_facility": {
+        "train": {
+          "fall": 48,
+          "near_fall": 24,
+          "adl": 72
+        },
+        "calibration": {
+          "fall": 24,
+          "near_fall": 12,
+          "adl": 36
+        },
+        "test": {
+          "fall": 24,
+          "near_fall": 12,
+          "adl": 36
+        }
+      },
+      "minimum_strict_fall_per_facility": 4,
+      "facilities": [
+        {
+          "name": "standard",
+          "noise": 1.0
+        },
+        {
+          "name": "harsh",
+          "noise": 3.0
+        }
+      ],
+      "known_geometries": [
+        "clear",
+        "vertical_mid",
+        "central_furniture"
+      ],
+      "unseen_geometries": [
+        "vertical_new",
+        "horizontal_new",
+        "low_new",
+        "wide_new",
+        "two_new"
+      ],
+      "geometry_config": "configs/condition_robustness_holdout_v2.json",
+      "frozen_condition_source": "artifacts/frozen_condition_v2",
+      "epochs": 6,
+      "batch_size": 16,
+      "learning_rate": 0.001,
+      "calibration_fpr_budget": 0.05,
+      "raster": {
+        "beams": 430,
+        "range_scale_metres": 8.0,
+        "height_scale_metres": 2.5
+      },
+      "limitations": [
+        "Controlled sampling: positive prevalence is 1/3, not deployment prevalence",
+        "Positive evaluation is at episode frame 3, not event recall or latency evaluation",
+        "Synthetic time steps, 3-coordinate point clouds, 2.5-D occlusion, centralized existing CNN",
+        "Only ABNORMAL self-loop changes from 0.2 to 0.8; no condition-estimator change",
+        "Held-out geometries were used in earlier condition studies; new trajectory seeds are used"
+      ]
+    },
+    "config_sha256": "ee15e897ccd5a100dd34cd6d2b6b05fd76e98b364e670988411f9449985fd256",
+    "source_sha256": {
+      "experiments\\run_simulated_fall_p1_v2.py": "50c6a0c0fec3a4f1fb0b89b1237e16615a8f57755e0ee5930d14299eb6cf2fec",
+      "model.py": "d3e9f29ee01c86d7c74dfb2369b61839497652c0d4712969b23c4e81b829a4a2",
+      "experiments\\run_simulated_fall_p1.py": "e54b7eadd3a589efeb1bbaaf57b3193e0ed104919662775287b898196213df3b",
+      "experiments\\audit_simulated_cnn_inputs.py": "5b357f47f7e5a3d89e989a43f670e1a7d6f09961f6067b2d173bcf3b8772039e",
+      "src\\fall_comparison.py": "cf8dcdd619fa444a95bbe1c91dada191e387bdba6c3a551d616ac6a4b83a7407",
+      "experiments\\compare_fall_policies.py": "f7a4f0c24825004312018bce8f611bb0cbde6bbd96819c7578922de73690dc4c",
+      "experiments\\evaluate_original_cnn_on_fresh_trajectories.py": "b736297210a91d51eae48f75d584fdf84ab4a9463a507745eb144e8fe70dc6ee"
+    },
+    "testbed_source_sha256": {
+      "heterosense/__init__.py": "71a9830eec333a29ee615aaf8c53d20597f4f7b060071bd4a45076942f83abec",
+      "heterosense/_core/__init__.py": "c0346536b32e99e0e1eaec5425640f6249ee419e3d135e583341a5337a71b632",
+      "heterosense/_core/_behavior_model.py": "b77981072836267865e12cb49d0991b25ce2fff47f14120b3ea75e1eba3fabc3",
+      "heterosense/_core/_behavior_model_ext.py": "c6c1c72848bca6729d3cb6e38c95ed0b3eb9a73f8d61f58102179bfb093de58d",
+      "heterosense/_core/_config_manager.py": "31ac5af1a5d9f9d393d261a9a1ce967d2e4f57983ceef931cb6a0d56709626ee",
+      "heterosense/_core/_config_schema.py": "3715a744f635cfb68170b1dc0142897a594840ba78ebf172e815d1d052eda45c",
+      "heterosense/_core/_environment_model.py": "0921aa9e9a12182863183b5b3adebfad312beb9df1e3b73f56bf8430563da56e",
+      "heterosense/_core/_io_utils.py": "307944379a18e243ff8b56564730f8de1eaa27a6eccd74878512eeeb712a708d",
+      "heterosense/_core/_observation_model.py": "fed66f71a42a6446fe54895809368d2cf4a961527403fab77e021ec7746b5246",
+      "heterosense/_core/_observation_model_ext.py": "5a351a671aba066782ad03c3873c19762eeb08265a0a6ecd73a3bc84bc96e937",
+      "heterosense/_scripts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "heterosense/_scripts/condition_identifiability.py": "eecfcef61fba7485399821855378f490d0a24595bb26fdf3cb91226840a1563e",
+      "heterosense/_scripts/quick_demo.py": "e26928e85a0ccc035e24c600cd79577bccbb0b447153303613c3abbe8f7453f0",
+      "heterosense/_scripts/run_benchmark.py": "beedafd275c44750d4759565ef6a46b030ea22bce6966e849a16647e7c248a5d",
+      "heterosense/_scripts/structured_occlusion_pilot.py": "1584c98460837a9c7badb1ecee95ee86ccb1d3fcc61f5d2d615b22001b51b128",
+      "heterosense/baseline_demo.py": "082577c326ebfa542223455aece55cfa49dbab36c0e0c541d80c0a6b02076ee5",
+      "heterosense/client_factory.py": "4267b37316ac5593864e0325e1b41fb8039d091aabf7fbea6b55849997d67f2e",
+      "heterosense/condition_estimator.py": "09fcd3bc0438d9a670fde41aa04b7b7df6589460400782f67cd07522edf57141",
+      "heterosense/dataset_builder.py": "d788c721a2091e03314c2343a651d637fef2ef23d540e26254f102b03d1cd1a9",
+      "heterosense/observation_statistics.py": "d14a37ac2d4e439e0d42a7a06374f667af626e0f766413339696cda4dd8f102a",
+      "heterosense/temporal_window_sampler.py": "eca7ae46d232a92726f17e45af8e9d3ce8b7a582be88f906085c39d58c63d8fd",
+      "heterosense/validation.py": "758951ce0014919044862f8576f4c5de0ba03b50e862cb551972a2dca344085e",
+      "pyproject.toml": "329a6512492bb4d8234349e7d93abeaf6ac697f4a89cbdba5f069d19b1071c74"
+    },
+    "git": {
+      "commit": "58bf88c55b31bca27a48d2f42d7f551458c52022",
+      "status": "?? docs/FRESH_TRAJECTORY_COMPARISON.md"
+    },
+    "python": "3.14.3",
+    "numpy": "2.4.3",
+    "torch": "2.10.0+cpu",
+    "status": "complete_simulation_only",
+    "observations_sha256": "67026ff022d97c4ef76297f09a01454632385741831cc05a55de6946a022b09e",
+    "condition_provenance": {
+      "artifact_sha256": "753259bcfb07a009024548615382cfb71b313b0b3777f0b97cd82207c049952e",
+      "training_geometries": [
+        "vertical_near",
+        "vertical_mid",
+        "horizontal_near",
+        "horizontal_mid",
+        "central_furniture",
+        "train_furniture_h0.45_p0",
+        "train_furniture_h0.45_p1",
+        "train_furniture_h0.7_p0",
+        "train_furniture_h0.7_p1",
+        "train_furniture_h1.15_p0",
+        "train_furniture_h1.15_p1",
+        "train_furniture_h1.5_p0",
+        "train_furniture_h1.5_p1"
+      ],
+      "training_recording_ids": [
+        "condition_paired_site_0",
+        "condition_paired_site_1",
+        "condition_paired_site_2",
+        "condition_paired_site_3",
+        "condition_paired_site_4"
+      ],
+      "condition_config_sha256": "192b9afbf5045b982eafa6af92eac2b01ca997e79e14d341d7d4416e4727b61e",
+      "frozen_cutoff": 0.30309518477579933,
+      "robust_cache_sha256": "182ff5d3752292b31353125ce30d8f000c91bea26c5187636fff852d7316e913",
+      "augmented_cache_sha256": "552e35b1814968fad8e41d7e8a3142d6adb85086af3f3e1c944c72767c3b1d65"
+    },
+    "scores_sha256": "3d21759c040f1bf51b2be20d0b0f92d9a78992793b5cc22a9e984fbad35c95df",
+    "checkpoint_origin": "Original six-epoch run; no retraining",
+    "original_training_arrays_identical": true,
+    "original_training_sha256": "2234f902c9cd592fe83b1152afd63f7236167ce98ebe773fe6a170fb52de9293"
+  },
+  "thresholds": {
+    "0": {
+      "B1": 0.440585345029831,
+      "B2": 0.6064543128013612,
+      "B3": {
+        "harsh": 0.6406683921813966,
+        "standard": 0.5482813119888307
+      },
+      "P1": {
+        "0": 0.5482813119888307,
+        "1": 0.6185957193374635
+      },
+      "fallbacks": [],
+      "condition_cutoff": 0.0,
+      "seen_geometries": [
+        "central_furniture",
+        "clear",
+        "horizontal_mid",
+        "horizontal_near",
+        "train_furniture_h0.45_p0",
+        "train_furniture_h0.45_p1",
+        "train_furniture_h0.7_p0",
+        "train_furniture_h0.7_p1",
+        "train_furniture_h1.15_p0",
+        "train_furniture_h1.15_p1",
+        "train_furniture_h1.5_p0",
+        "train_furniture_h1.5_p1",
+        "vertical_mid",
+        "vertical_near"
+      ],
+      "unseen_facilities_using_B2": []
+    },
+    "1": {
+      "B1": 0.47327384352684027,
+      "B2": 0.531096637248993,
+      "B3": {
+        "harsh": 0.5452008843421937,
+        "standard": 0.5212301611900331
+      },
+      "P1": {
+        "0": 0.5229254364967347,
+        "1": 0.531096637248993
+      },
+      "fallbacks": [],
+      "condition_cutoff": 0.0,
+      "seen_geometries": [
+        "central_furniture",
+        "clear",
+        "horizontal_mid",
+        "horizontal_near",
+        "train_furniture_h0.45_p0",
+        "train_furniture_h0.45_p1",
+        "train_furniture_h0.7_p0",
+        "train_furniture_h0.7_p1",
+        "train_furniture_h1.15_p0",
+        "train_furniture_h1.15_p1",
+        "train_furniture_h1.5_p0",
+        "train_furniture_h1.5_p1",
+        "vertical_mid",
+        "vertical_near"
+      ],
+      "unseen_facilities_using_B2": []
+    },
+    "2": {
+      "B1": 0.6441659331321717,
+      "B2": 0.5483480691909791,
+      "B3": {
+        "harsh": 0.5708097219467164,
+        "standard": 0.4750489294528962
+      },
+      "P1": {
+        "0": 0.4835587143898011,
+        "1": 0.5652284026145936
+      },
+      "fallbacks": [],
+      "condition_cutoff": 0.0,
+      "seen_geometries": [
+        "central_furniture",
+        "clear",
+        "horizontal_mid",
+        "horizontal_near",
+        "train_furniture_h0.45_p0",
+        "train_furniture_h0.45_p1",
+        "train_furniture_h0.7_p0",
+        "train_furniture_h0.7_p1",
+        "train_furniture_h1.15_p0",
+        "train_furniture_h1.15_p1",
+        "train_furniture_h1.5_p0",
+        "train_furniture_h1.5_p1",
+        "vertical_mid",
+        "vertical_near"
+      ],
+      "unseen_facilities_using_B2": []
+    },
+    "3": {
+      "B1": 0.7651243209838868,
+      "B2": 0.5610729455947877,
+      "B3": {
+        "harsh": 0.5968830585479737,
+        "standard": 0.48293313384056097
+      },
+      "P1": {
+        "0": 0.49794995784759527,
+        "1": 0.5748982429504396
+      },
+      "fallbacks": [],
+      "condition_cutoff": 0.0,
+      "seen_geometries": [
+        "central_furniture",
+        "clear",
+        "horizontal_mid",
+        "horizontal_near",
+        "train_furniture_h0.45_p0",
+        "train_furniture_h0.45_p1",
+        "train_furniture_h0.7_p0",
+        "train_furniture_h0.7_p1",
+        "train_furniture_h1.15_p0",
+        "train_furniture_h1.15_p1",
+        "train_furniture_h1.5_p0",
+        "train_furniture_h1.5_p1",
+        "vertical_mid",
+        "vertical_near"
+      ],
+      "unseen_facilities_using_B2": []
+    },
+    "4": {
+      "B1": 0.4117861688137055,
+      "B2": 0.343495786190033,
+      "B3": {
+        "harsh": 0.35667636990547186,
+        "standard": 0.3113074600696564
+      },
+      "P1": {
+        "0": 0.3261630833148957,
+        "1": 0.35495355725288397
+      },
+      "fallbacks": [],
+      "condition_cutoff": 0.0,
+      "seen_geometries": [
+        "central_furniture",
+        "clear",
+        "horizontal_mid",
+        "horizontal_near",
+        "train_furniture_h0.45_p0",
+        "train_furniture_h0.45_p1",
+        "train_furniture_h0.7_p0",
+        "train_furniture_h0.7_p1",
+        "train_furniture_h1.15_p0",
+        "train_furniture_h1.15_p1",
+        "train_furniture_h1.5_p0",
+        "train_furniture_h1.5_p1",
+        "vertical_mid",
+        "vertical_near"
+      ],
+      "unseen_facilities_using_B2": []
+    }
+  },
+  "verified_models": 10,
+  "verified_metric_rows": 620,
+  "source_reporter_sha256": "eef6c6f6e07856b926ba4a34a8a611871ef4a668e8ebe8b0d12f58c196e6ae0d",
+  "exported_sha256": {
+    "metrics.csv": "f9b9c2541e1df36a204806c011cc3cfbe6c3f4123ce984fee0b3a2451acfcd68",
+    "summary.csv": "6732ef6286c04dde04ab01174a66bb36113ae9f90ce3e666c925891d01636df9",
+    "paired_P1_minus_B3.csv": "a192434d750d1678d6576308b0f9e29107bdabcf924ca2c14333fdec1b1c862a",
+    "paired_P1_minus_B3_summary.csv": "52f54c43f0b6858b8ebb875386fd09826d87c636a7254c2e829541e507905dc6"
+  }
+}

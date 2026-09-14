@@ -1,5 +1,13 @@
 # 研究進捗まとめ
 
+## 2026-09-14: 新規軌跡で6/18 epochsの全方式比較を完了
+
+[追加比較結果](FRESH_TRAJECTORY_RESULTS.md)を保存した。両学習時間で同じ新規calibration/testを使用し、各5 seedsを比較。
+18 epochsのunseenではB3→P1の平均Recall 0.301→0.323、F1 0.432→0.463、FPR 0.037→0.030。
+元の6 epochs結果は保持。B1は平均Recall/F1、B2はFPRで優れ、P1の全方式への優越とはしない。
+20 checkpointsと1,240 group行、実推論320窓、同一学習・評価入力、6 epochsまでの損失一致を検証した。
+比較図・CSV・原稿を更新し、関連研究の一次文献3件を原稿へ追加した。
+
 ## 2026-09-09: B2の学習時間を開発分割・5 seedsで追加検証
 
 元のtrain記録だけをfit/developmentに分離し、事前固定した6対18 epochsを比較した。

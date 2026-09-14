@@ -1,0 +1,74 @@
+{
+  "status": "verified_corrected_endpoint_comparison",
+  "checks": {
+    "source_hashes": true,
+    "condition_artifact_unchanged": true,
+    "quotas_per_facility_geometry": true,
+    "target_subtypes": true,
+    "endpoint_alignment": true,
+    "disjoint_recordings": true,
+    "array_alignment": true
+  },
+  "model_score_reproduction": [
+    {
+      "seed": 0,
+      "method": "B1",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 0,
+      "method": "B2",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 1,
+      "method": "B1",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 1,
+      "method": "B2",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 2,
+      "method": "B1",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 2,
+      "method": "B2",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 3,
+      "method": "B1",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 3,
+      "method": "B2",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 4,
+      "method": "B1",
+      "reproduced_windows": 16
+    },
+    {
+      "seed": 4,
+      "method": "B2",
+      "reproduced_windows": 16
+    }
+  ],
+  "windows": 2448,
+  "unique_endpoints": 576,
+  "input_sha256": {
+    "observations.npz": "67026ff022d97c4ef76297f09a01454632385741831cc05a55de6946a022b09e",
+    "windows.csv": "1b6f8a7cd28a24bf40696ddf304e75fae8a0461ba5c5e353a1705a738c6b2ae3",
+    "scores.csv": "3d21759c040f1bf51b2be20d0b0f92d9a78992793b5cc22a9e984fbad35c95df",
+    "selected_endpoints.csv": "67f120fd4622e440d80d4911145cf26fdcd8808485f40d99499046666312225f",
+    "event_preflight.json": "25bafd255d5de9c81425f110c39163e6024e0e096aa1c73ca481cbeeb0cdcbc8"
+  },
+  "verifier_sha256": "0c57e9e6ea00c7835956112b0904984d649a89c0064c0dc8f91cedf4260c10fe"
+}
